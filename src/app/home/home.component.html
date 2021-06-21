@@ -1,1 +1,53 @@
-<p>home works!</p>
+<app-head></app-head>
+            <!-- Masthead-->
+<script src= "https://player.twitch.tv/js/embed/v1.js"></script>
+        <header class="masthead">
+            <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+                <div class="d-flex justify-content-center">
+                    <div class="text-center">
+                        <h1 class="mx-auto my-0 text-uppercase">USEC MICROWAVE</h1>
+                        <h2 class="text-white-50 mx-auto mt-2 mb-5">A free, responsive, one page Bootstrap theme created by Start Bootstrap.</h2>
+                        <a class="btn btn-primary" href="#about">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- About-->
+        <section class="about-section text-center" id="about">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="text-white mb-4">DOPE_USEC</h2>
+                        <p class="text-white-50">
+                            My name is Basti i'm a German content creator , i'm 32 years old .
+                            I stream on twitch and upload videos on youtube from time to time .
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- Projects-->
+        <br>
+        <div style="text-align:center;" id="clips">
+        <table style="width:100%; content:center">
+            <tr *ngFor="let clip of clips">
+              <iframe [src]=clip height="400" width="700" allowfullscreen="true"></iframe>
+               <th>
+              <!--  <h4>{{clip.name}}</h4>
+                <p class="text-black-50 mb-0">{{clip.description}}</p>
+                <br>
+
+                <iframe [src]=clip.link height="400" width="700" allowfullscreen="true"></iframe></th>
+              <th>
+                <h4></h4>
+                <p class="text-black-50 mb-0"></p>
+                <br>
+                <iframe src="" height="400" width="700" allowfullscreen="true"></iframe> -->
+            </th>
+            </tr>
+        </table>
+        </div>
+        <br>
+        <app-footer></app-footer>
+
