@@ -1,1 +1,70 @@
-<p>admin works!</p>
+<ul class="list-group">
+
+    <li ><a class="btn-primary" href="/admin/events">E=Clips</a></li>
+    <li ><a class="btn-primary" href="/admin/clips">Events</a></li>
+    <li class="btn-dark">
+      <a
+        *ngIf="authService.isLoggedIn"
+        class="nav-link"
+        routerLinkActive="active text-primary"
+        (click)="logout()"
+      >
+        Logout
+       </a>
+    </li>
+</ul>
+<div style="margin-left:10%;padding:1px 16px;height:1000px;">
+  <section class="bg-light" id="clips">
+  <h1 style="text-align: center;">Clips Table</h1>
+    <table class="table" id='clips' style=" width:100% ">
+        <thead class="thead-dark">
+            <tr>
+                <th>name</th>
+                <th>description</th>
+                <th>link</th>
+                <th>createdAt</th>
+                <th>updatedAt</th>
+            </tr>
+        </thead>
+        <tr *ngFor="let clip of clips">
+          <th>{{clip.name}}</th>
+          <th>{{clip.description}}</th>
+          <th style="width: 100px;">{{clip.link}}</th>
+          <th>{{clip.rules}}</th>
+
+            <th>
+                <!-- <button  class="btn btn-primary" (click)="updateClip() " [routerLink]="['clip/update']">update</button> -->
+                <button  class="btn btn-primary">delete</button>
+            </th>
+        </tr>
+        </table>
+    <!-- <button  class="btn btn-primary" [routerLink]="['event/add']">add shop</button> -->
+<section  class="bg-light" id="events">
+<h1 style="text-align: center;">Events Table</h1>
+    <table class="table" id='produits' style=" width:100% ">
+        <thead class="thead-dark">
+            <tr>
+              <th>name</th>
+              <th>description</th>
+              <th>link</th>
+              <th>rules</th>
+              <th>photo</th>
+              <th>createdAt</th>
+              <th>updatedAt</th>
+            </tr>
+        </thead>
+        <tr *ngFor="let event of events ">
+          <th>{{event.name}}</th>
+            <th>{{event.description}}</th>
+            <th style="width: 100px;">{{event.link}}</th>
+            <th>{{event.rules}}</th>
+            <th style="width: 50px;">{{event.photo}}</th>
+            <th>{{event.createdAt}}</th>
+            <th>{{event.updatedAt}}</th>
+            <th >
+                <!-- <button  class="btn btn-primary" (click)="updateEvent()" [routerLink]="['event/update']">update</button> -->
+                <button  class="btn btn-primary" >delete</button>
+            </th>
+        </tr>
+    </table>
+    <!-- <button  class="btn btn-primary" [routerLink]="['event/add']">add produit</button> -->

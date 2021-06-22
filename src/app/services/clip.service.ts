@@ -19,6 +19,16 @@ export class ClipService {
   getClips(){
     return this.http.get(this.url);
   }
+  createClip(data:any): Observable<any> {
+    return this.http.post(this.url, data);
+  }
+  updateClip(id:string, data:any): Observable<any> {
+    return this.http.put(`${this.url}/${id}`, data);
+  }
+
+  deleteClip(id:string): Observable<any> {
+    return this.http.delete(`${this.url}/${id}`);
+  }
     errorHandler(error: { error: { message: string; }; status: any; message: any; }) {
       let errorMessage = '';
       if(error.error instanceof ErrorEvent) {

@@ -1,3 +1,4 @@
+
 import { ClipService } from './services/clip.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,6 +15,8 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './auth.interceptor';
 import { AdminComponent } from './admin/admin.component';
+import { ClipAdminComponent } from './admin/clip-admin/clip-admin.component';
+import { EventAdminComponent } from './admin/event-admin/event-admin.component';
 
 
 @NgModule({
@@ -25,7 +28,9 @@ import { AdminComponent } from './admin/admin.component';
     EventComponent,
     ClipComponent,
     LoginComponent,
-    AdminComponent
+    AdminComponent,
+    ClipAdminComponent,
+    EventAdminComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { throwError } from 'rxjs';
+import { throwError, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -18,6 +18,17 @@ export class EventService {
   getEvents(){
     return this.http.get(this.url);
   }
+  createEvent(data:any): Observable<any> {
+    return this.http.post(this.url, data);
+  }
+  updateEvent(id:string, data:any): Observable<any> {
+    return this.http.patch(`${this.url}/${id}`, data);
+  }
+
+  deleteEvent(id:string): Observable<any> {
+    return this.http.delete(`${this.url}/${id}`);
+  }
+
     errorHandler(error: { error: { message: string; }; status: any; message: any; }) {
       let errorMessage = '';
       if(error.error instanceof ErrorEvent) {

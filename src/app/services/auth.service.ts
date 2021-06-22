@@ -27,7 +27,7 @@ export class AuthService {
         localStorage.setItem('access_token', res.token);
         localStorage.setItem('username',res.username);
         localStorage.setItem('_id',res._id);
-        this.router.navigate(['events']);
+        this.router.navigate(['admin']);
       })
   }
 
