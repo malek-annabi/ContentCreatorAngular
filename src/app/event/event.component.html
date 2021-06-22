@@ -1,0 +1,37 @@
+<app-head></app-head>
+<script type="text/javascript">
+  function resizeIframe(iframe) {
+    iframe.height = iframe.contentWindow.document.body.scrollHeight + "px";
+  }
+</script>
+<div style="align-items: center;" *ngFor="let event of events;let i = index;">
+<section class="event-card">
+  <header class="header">
+    <h1 class="heading">{{events[i].name}}</h1>
+    <div class="event-image-wrapper">
+      <img class="event-image" src="{{events[i].photo}}">
+    </div>
+  </header>
+  <div class="event-details">
+  </div>
+
+  <br>
+  <time class="date">
+    <div>{{events[i].time}}</div>
+  </time>
+  <div class="header">{{events[i].description}}</div>
+  <br>
+  <div class="header" style="font-size: x-large;">Rules :
+    <br>
+    {{events[i].rules}}
+    <br>
+    <br>
+  </div>
+</section>
+<div *ngIf="links[i]">
+<iframe class="responsive-iframe" width="1510" height="850" [src]=links[i] title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div>
+<br>
+<br>
+<app-footer></app-footer>

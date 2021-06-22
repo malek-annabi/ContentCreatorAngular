@@ -6,9 +6,14 @@ import { AppComponent } from './app.component';
 import { HeadComponent } from './head/head.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CommonModule } from "@angular/common";
-import { AsyncpipePipe } from './asyncpipe.pipe';
+import { EventComponent } from './event/event.component';
+import { ClipComponent } from './clip/clip.component';
+import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { AuthInterceptor } from './auth.interceptor';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -17,15 +22,26 @@ import { AsyncpipePipe } from './asyncpipe.pipe';
     HeadComponent,
     FooterComponent,
     HomeComponent,
-    AsyncpipePipe
+    EventComponent,
+    ClipComponent,
+    LoginComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Oswald');
+.responsive-iframe {
+  width: 100%;
+  height: 800px;
+}
+.event-card {
+  letter-spacing: 0.1rem;
+  position: relative;
+  font-family: 'Oswald', 'Avenir Condensed', sans-serif;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 2px 3px black;
+  -webkit-transition: all 0.5s ease-in;
+  -moz-transition: background-color 0.5s ease-in;
+  -o-transition: background-color 0.5s ease-in;
+  transition: background-color 0.5s ease-in;
+}
+
+.event-card:hover .links {
+  opacity: 1;
+  height: 7rem;
+  width: 100%;
+}
+
+.event-card:hover {
+  background-color: black;
+  color: #FFF;
+}
+
+.event-card:hover .divider {
+  background-color: white;
+}
+
+.event-card:hover .heading {
+  -webkit-transform: skew(-15deg);
+  -moz-transform: skew(-15deg);
+  -o-transform: skew(-15deg);
+  transform: skew(-15deg);
+}
+
+
+/* Header */
+.header {
+  text-align: center;
+  font-size: 3rem;
+  margin-top: 4rem;
+}
+
+.heading {
+  margin: 0;
+  font-size: 6rem;
+  z-index: 1;
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+
+.event-image-wrapper {
+/*   background-color: pink; */
+/*   opacity: 0.5; */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.event-image {
+  opacity: 0.2;
+  -webkit-filter: grayscale(80%);
+  filter: grayscale(80%);
+  width: 100%;
+/*   height: 100%; */
+/*   object-fit: cover; */
+  z-index: 0;
+}
+
+
+/* Event Details */
+
+.event-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Open Sans', sans-serif;
+  position: relative;
+  z-index: 1;
+  margin: 0 0 1.5rem 0;
+  padding: 0;
+}
+
+.date {
+  text-align: center;
+  padding: 1rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.divider {
+  background-color: black;
+  height: 5.5rem;
+  width: 0.25rem;
+}
+
+.address {
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-style: normal;
+  line-height: 2rem;
+}
+
+.address .name {
+  font-weight: bold;
+}
+
+
+/* Links */
+
+.links {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  font-size: 2rem;
+  list-style-type: none;
+  font-weight: bold;
+  opacity: 0;
+  height: 0;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+.links li {
+  width: 100%;
+}
+
+.links a {
+  display: flex;
+  flex: auto;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  text-decoration: none;
+  text-align: center;
+  border-bottom: 0.25rem solid gray;
+  box-shadow: 0 2px 3px black;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+.links a:active {
+  border-bottom-width: 0;
+  margin-top: 0.2rem;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+.links a:focus {
+  outline: 5px solid white;
+}
+
+.links .get-details {
+  background: lightgray;
+  background: linear-gradient(to left, lightgray, silver, lightgray, silver);
+  background-size: 400% 400%;
+}
+
+.links .get-tickets {
+  background: yellow;
+  background: linear-gradient(to left, yellow, gold, yellow, gold);
+  background-size: 400% 400%;
+}
+
+.links .get-details:hover, .links .get-tickets:hover {
+  -webkit-animation: linkGradients 5s ease-in-out infinite;
+  -moz-animation: linkGradients 5s ease-in-out infinite;
+  -o-animation: linkGradients 5s ease-in-out infinite;
+  animation: linkGradients 5s ease-in-out infinite;
+}
+
+
+/* Link Animations
+ * Source: https://www.gradient-animator.com/
+ */
+
+@-webkit-keyframes linkGradients {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes linkGradients {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-o-keyframes linkGradients {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes linkGradients {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}

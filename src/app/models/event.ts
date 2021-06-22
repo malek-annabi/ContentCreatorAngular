@@ -5,7 +5,7 @@ export enum Event {
   description,
   photo,
   status,
-  trailerg,
+  trailer,
   rules,
   postedBy
 }

@@ -1,3 +1,4 @@
+import { AuthService } from './services/auth.service';
 
 import { Component } from '@angular/core';
 
@@ -8,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ContentCreatorAngular';
+  constructor(public authService: AuthService) { }
+
+  logout() {
+    this.authService.doLogout()
+  }
 }

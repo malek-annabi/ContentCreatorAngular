@@ -1,12 +1,7 @@
-export enum User {
-  id,
-  name,
-  firstname,
-  username,
-  email,
-  password,
-  idnumber,
-  address,
-  createdAt,
-  updatedAt
+
+export class User {
+  _id!: String;
+  name!: String;
+  email!: String;
+  password!: String;
 }
