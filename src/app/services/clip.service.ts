@@ -8,7 +8,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ClipService {
-  private url="http://localhost:3001/";
+  private url="http://localhost:3001";
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -19,6 +19,9 @@ export class ClipService {
   getClips(){
     return this.http.get(this.url);
   }
+  getClip(id:string){
+    return this.http.get(`${this.url}/${id}`);
+  }
   createClip(data:any): Observable<any> {
     return this.http.post(this.url, data);
   }
@@ -27,6 +30,7 @@ export class ClipService {
   }
 
   deleteClip(id:string): Observable<any> {
+    console.log('service',id)
     return this.http.delete(`${this.url}/${id}`);
   }
     errorHandler(error: { error: { message: string; }; status: any; message: any; }) {

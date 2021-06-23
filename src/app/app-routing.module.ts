@@ -1,3 +1,4 @@
+import { UpdateClipComponent } from './admin/update-clip/update-clip.component';
 import { EventAdminComponent } from './admin/event-admin/event-admin.component';
 import { ClipAdminComponent } from './admin/clip-admin/clip-admin.component';
 import { AdminComponent } from './admin/admin.component';
@@ -16,12 +17,14 @@ const routes: Routes = [
   {path:'admin/login',component:LoginComponent},
   {path:'admin',component:AdminComponent ,canActivate: [AuthGuard],children :[
     { path: 'clips', component:AdminComponent,children:[
-      {path:':id',component: AdminComponent},
+      {path:'update/:id',component: UpdateClipComponent},
+      {path:'delete/:id',component: AdminComponent},
       {path:'add',component: ClipAdminComponent},
 
-  ]},
+    ]},
     { path: 'events', component:AdminComponent,children:[
-      {path:':id',component: AdminComponent},
+      {path:'update/:id',component: EventAdminComponent},
+      {path:'delete/:id',component: AdminComponent},
       {path:'add',component: EventAdminComponent},
   ]}]}
 

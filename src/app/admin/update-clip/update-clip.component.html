@@ -1,0 +1,23 @@
+<div class="col-md-6 offset-md-3">
+  <h3> Update Clip </h3>
+  <form (ngSubmit) = "onSubmit()">
+      <div class="form-group">
+          <label> name</label>
+          <input type="text" class ="form-control" id = "firstName"
+              [(ngModel)] = "clip.name" name = "name">
+      </div>
+      <div class="form-group">
+          <label> description</label>
+          <input type="text" class ="form-control" id = "description"
+              [(ngModel)] = "clip.description" name = "description">
+      </div>
+
+      <div class="form-group">
+          <label> link</label>
+          <input type="text" class ="form-control" id = "link"
+              [(ngModel)] = "clip.link" name = "link">
+      </div>
+
+      <button class = "btn btn-success" type ="submit">Submit</button>
+  </form>
+  </div>

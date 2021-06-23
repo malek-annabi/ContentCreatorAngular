@@ -1,19 +1,12 @@
 <ul class="list-group">
-
-    <li ><a class="btn-primary" href="/admin/events">E=Clips</a></li>
-    <li ><a class="btn-primary" href="/admin/clips">Events</a></li>
-    <li class="btn-dark">
-      <a
-        *ngIf="authService.isLoggedIn"
-        class="nav-link"
-        routerLinkActive="active text-primary"
-        (click)="logout()"
-      >
-        Logout
-       </a>
+    <li><a class="btn-primary active" href="/admin/clips">Clips</a></li>
+    <li><a class="btn-primary" href="/admin/events">Events</a></li>
+    <li class="btn-danger">
+      <a *ngIf="authService.isLoggedIn" class="nav-link"routerLinkActive="active text-primary" (click)="logout()">
+        logout</a>
     </li>
 </ul>
-<div style="margin-left:10%;padding:1px 16px;height:1000px;">
+<div *ngIf="router.url === '/admin/clips' || router.url === '/admin'" style="margin-left:10%;padding:1px 16px;height:1000px;">
   <section class="bg-light" id="clips">
   <h1 style="text-align: center;">Clips Table</h1>
     <table class="table" id='clips' style=" width:100% ">
@@ -24,24 +17,30 @@
                 <th>link</th>
                 <th>createdAt</th>
                 <th>updatedAt</th>
+                <th></th>
             </tr>
         </thead>
-        <tr *ngFor="let clip of clips">
+        <div *ngFor="let clip of clips">
+        <tr *ngIf="clip.status=='active'">
           <th>{{clip.name}}</th>
           <th>{{clip.description}}</th>
           <th style="width: 100px;">{{clip.link}}</th>
-          <th>{{clip.rules}}</th>
-
+          <th>{{clip.createdAt}}</th>
+          <th>{{clip.updatedAt}}</th>
             <th>
-                <!-- <button  class="btn btn-primary" (click)="updateClip() " [routerLink]="['clip/update']">update</button> -->
-                <button  class="btn btn-primary">delete</button>
+                <button  class="btn btn-success" (click)="updateClip(clip._id) ">update</button>
+                <button  class="btn btn-danger" (click)="removeClip(clip._id)" [routerLink]="['clips/delete/', clip._id]"  routerLinkActive="active">delete</button>
             </th>
         </tr>
+        </div>
         </table>
-    <!-- <button  class="btn btn-primary" [routerLink]="['event/add']">add shop</button> -->
-<section  class="bg-light" id="events">
-<h1 style="text-align: center;">Events Table</h1>
-    <table class="table" id='produits' style=" width:100% ">
+        </section>
+        </div>
+    <!-- <button  class="btn btn-success" [routerLink]="['event/add']">add shop</button> -->
+    <div *ngIf="router.url === '/admin/events'" style="margin-left:10%;padding:1px 16px;height:1000px;">
+    <section  class="bg-light" id="events">
+      <h1 style="text-align: center;">Events Table</h1>
+        <table class="table" id='produits' style=" width:100% ">
         <thead class="thead-dark">
             <tr>
               <th>name</th>
@@ -53,18 +52,22 @@
               <th>updatedAt</th>
             </tr>
         </thead>
-        <tr *ngFor="let event of events ">
+        <div *ngFor="let event of events ">
+        <tr *ngIf="event.status=='active'">
           <th>{{event.name}}</th>
             <th>{{event.description}}</th>
             <th style="width: 100px;">{{event.link}}</th>
             <th>{{event.rules}}</th>
-            <th style="width: 50px;">{{event.photo}}</th>
+            <th style="width: 100px">{{event.photo}}</th>
             <th>{{event.createdAt}}</th>
             <th>{{event.updatedAt}}</th>
             <th >
-                <!-- <button  class="btn btn-primary" (click)="updateEvent()" [routerLink]="['event/update']">update</button> -->
-                <button  class="btn btn-primary" >delete</button>
+                <!-- <button  class="btn btn-success" (click)="updateEvent()" [routerLink]="['clip/delete/{{clip.id}}']">update</button> -->
+                <button  class="btn btn-danger" (click)="removeEvent(event._id)"  [routerLink]="['events/delete/{{event.id}}']" routerLinkActive="active">delete</button>
             </th>
         </tr>
+      </div>
     </table>
-    <!-- <button  class="btn btn-primary" [routerLink]="['event/add']">add produit</button> -->
+    </section>
+    </div>
+    <!-- <button  class="btn btn-success" [routerLink]="['event/add']">add produit</button> -->

@@ -1,17 +1,11 @@
 <div style="text-align:center;" id="clips">
   <table style="width:100%; content:center" *ngFor="let clip of clips;let i = index;">
-      <tr *ngIf="i % 2 === 0" >
-         <th>
+      <tr>
+         <th *ngIf="clips[i].status=='active'">
          <h4>{{clips[i].name}}</h4>
           <p class="text-black-50 mb-0">{{clips[i].description}}</p>
           <br>
           <iframe [src]=links[i] height="400" width="700" allowfullscreen="true"></iframe>
-          </th>
-          <h4>{{clips[i+1].name}}</h4>
-          <p class="text-black-50 mb-0">{{clips[i+1].description}}</p>
-          <br>
-          <iframe [src]=links[i+1] height="400" width="700" allowfullscreen="true"></iframe>
-          <th>
           </th>
       </tr>
   </table>

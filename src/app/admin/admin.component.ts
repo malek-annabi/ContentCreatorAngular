@@ -1,9 +1,9 @@
-import { ActivationEnd, Router, ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { ActivationEnd, Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { ClipService } from './../services/clip.service';
 import { EventService } from './../services/event.service';
 import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { AuthGuard } from '../guard/auth.guard';
 
 @Component({
   selector: 'app-admin',
@@ -11,17 +11,17 @@ import { AuthGuard } from '../guard/auth.guard';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
+  id:any;
   events:any;
   clips:any;
-  id:any;
   public auth:any;
-  role="adminachat";
-
   constructor(private event:EventService,
     private clip:ClipService,
     public authService:AuthService,
     public router:Router,
     private activatedRoute: ActivatedRoute,
+    private clipService: ClipService,
+    private eventService: EventService,
     ) { }
   Retour(){
     this.router.navigate(['admin']);
@@ -30,10 +30,6 @@ export class AdminComponent implements OnInit {
     this.authService.doLogout()
   }
   ngOnInit():void{
-    this.activatedRoute.params.subscribe(
-      (params) => {
-        this.id=params.id;
-      });
     this.event.getEvents().subscribe((result)=>{
       this.events=result
       this.events=this.events.events;
@@ -42,5 +38,37 @@ export class AdminComponent implements OnInit {
       this.clips=result
       this.clips=this.clips.clips;
     })
+  }
+  removeClip(id:any): void {
+    if(confirm("Are you sure to delete this")) {
+    console.log(id)
+    this.clipService.deleteClip(id)
+      .subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log(error);
+        });
+        this.router.navigate(['admin']);
+        window.location.reload();
+      }
+  }
+  removeEvent(id:any): void {
+    if(confirm("Are you sure to delete this")) {
+    this.eventService.deleteEvent(id)
+      .subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log(error);
+        });
+        this.router.navigate(['admin']);
+        window.location.reload();
+      }
+  }
+  updateClip(id: string){
+    this.router.navigate(['admin/clips/update', id]);
   }
 }

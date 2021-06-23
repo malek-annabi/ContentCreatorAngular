@@ -17,6 +17,8 @@ import { AuthInterceptor } from './auth.interceptor';
 import { AdminComponent } from './admin/admin.component';
 import { ClipAdminComponent } from './admin/clip-admin/clip-admin.component';
 import { EventAdminComponent } from './admin/event-admin/event-admin.component';
+import { UpdateClipComponent } from './admin/update-clip/update-clip.component';
+import { UpdateEventComponent } from './admin/update-event/update-event.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { EventAdminComponent } from './admin/event-admin/event-admin.component';
     LoginComponent,
     AdminComponent,
     ClipAdminComponent,
-    EventAdminComponent
+    EventAdminComponent,
+    UpdateClipComponent,
+    UpdateEventComponent
   ],
   imports: [
     BrowserModule,

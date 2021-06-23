@@ -18,10 +18,11 @@ export class ClipAdminComponent implements OnInit {
   constructor(private clipService:ClipService) { }
 
   ngOnInit(): void {
+
   }
   createClip(): void {
     const data = {
-      nom: this.clip.name,
+      name: this.clip.name,
       link: this.clip.link,
       description: this.clip.description,
       postedBy: this.clip.postedBy,
