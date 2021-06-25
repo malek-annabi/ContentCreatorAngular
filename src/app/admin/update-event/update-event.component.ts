@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateEventComponent implements OnInit {
   id: any;
-  event: Event = new Event();
+  event:Event=new Event();
   constructor(private eventService: EventService,
     private route: ActivatedRoute,
     private router: Router,
@@ -21,13 +21,8 @@ export class UpdateEventComponent implements OnInit {
   ngOnInit(): void {
   }
   onUpdateSubmit(_id:any){
-    this.id = _id
-    this.eventService.getEvent(this.id).subscribe((data:any) => {
-      console.log(data)
-      this.event = data;
-      }, error => console.log(error));
-    this.eventService.updateEvent(this.id,this.event).subscribe( data =>{
-      console.log(data)
+    this.eventService.updateEvent(_id,this.event).subscribe( data =>{
+      this.event=data;
     }
     , error => console.log(error));
   }

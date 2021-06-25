@@ -1,10 +1,8 @@
 import { UpdateEventComponent } from './update-event/update-event.component';
 import { EventAdminComponent } from './event-admin/event-admin.component';
-import { Event } from './../models/event';
 import { ClipAdminComponent } from './clip-admin/clip-admin.component';
-import { Observable } from 'rxjs';
-import { ActivationEnd, Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router, ActivatedRoute } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ClipService } from './../services/clip.service';
 import { EventService } from './../services/event.service';
 import { AuthService } from './../services/auth.service';
@@ -30,8 +28,8 @@ export class AdminComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private clipService: ClipService,
     private eventService: EventService,
-    private modalService: NgbModal
-    ) { }
+    private modalService: NgbModal,
+    ) {}
   logout() {
     this.authService.doLogout()
   }
@@ -73,13 +71,13 @@ export class AdminComponent implements OnInit {
   }
   openAddClip() {
     const modalRef = this.modalService.open(ClipAdminComponent);
-    modalRef.componentInstance.name = 'AddEvent';
+    modalRef.componentInstance.name = 'AddClip';
   }
-  openUpdateClip(event:any) {
+  openUpdateClip(clip:any) {
     const modalRef = this.modalService.open(UpdateClipComponent);
-    modalRef.componentInstance.name = 'UpdateEvent';
-    modalRef.componentInstance.event=event;
-    modalRef.componentInstance.id=event._id;
+    modalRef.componentInstance.name = 'UpdateClip';
+    modalRef.componentInstance.clip=clip;
+    modalRef.componentInstance.id=clip._id;
   }
   openAddEvent() {
     const modalRef = this.modalService.open(EventAdminComponent);

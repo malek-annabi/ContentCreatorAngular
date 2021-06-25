@@ -22,13 +22,8 @@ export class UpdateClipComponent implements OnInit {
     console.log("hello")
   }
   onUpdateSubmit(_id:any){
-    this.id = _id
-    this.clipService.getClip(this.id).subscribe((data:any) => {
-      console.log(data)
+    this.clipService.updateClip(_id,this.clip).subscribe( data =>{
       this.clip = data;
-      }, error => console.log(error));
-    this.clipService.updateClip(this.id,this.clip).subscribe( data =>{
-      console.log(data)
     }
     , error => console.log(error));
   }
