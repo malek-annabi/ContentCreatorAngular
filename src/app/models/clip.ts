@@ -1,5 +1,5 @@
 export class Clip {
-  id!:string ;
+  _id!:string ;
   name!:string;
   link!:string;
   description!:string;

@@ -1,5 +1,3 @@
-
-import { ClipService } from './services/clip.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +17,7 @@ import { ClipAdminComponent } from './admin/clip-admin/clip-admin.component';
 import { EventAdminComponent } from './admin/event-admin/event-admin.component';
 import { UpdateClipComponent } from './admin/update-clip/update-clip.component';
 import { UpdateEventComponent } from './admin/update-event/update-event.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -42,7 +41,8 @@ import { UpdateEventComponent } from './admin/update-event/update-event.componen
     HttpClientModule,
     CommonModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [
     {

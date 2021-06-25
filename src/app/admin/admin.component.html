@@ -1,73 +1,111 @@
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js"></script>
 <ul class="list-group">
-    <li><a class="btn-primary active" href="/admin/clips">Clips</a></li>
-    <li><a class="btn-primary" href="/admin/events">Events</a></li>
-    <li class="btn-danger">
-      <a *ngIf="authService.isLoggedIn" class="nav-link"routerLinkActive="active text-primary" (click)="logout()">
+  <br>
+  <br>
+    <li><a class="btn active" href="/admin/clips">Clips</a></li>
+    <li><a class="btn" href="/admin/events">Events</a></li>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <li class="btn btn-danger">
+      <a  *ngIf="authService.isLoggedIn" routerLinkActive="active" (click)="logout()">
         logout</a>
     </li>
 </ul>
 <div *ngIf="router.url === '/admin/clips' || router.url === '/admin'" style="margin-left:10%;padding:1px 16px;height:1000px;">
-  <section class="bg-light" id="clips">
-  <h1 style="text-align: center;">Clips Table</h1>
-    <table class="table" id='clips' style=" width:100% ">
+
+  <section  class="bg-light" id="clips" >
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+      <h1 style="text-align: center;">Clips Table</h1>
+      <a style="align-self:center;margin-bottom: 2%;margin-left: 2%; width: 5dp;margin-bottom: 10px;" class="btn btn-success" (click)="openAddClip()"><i class="fa fa-plus" aria-hidden="true"></i></a>
+    <table style="margin-bottom: 5%;" class="table" id='clips'>
+
         <thead class="thead-dark">
             <tr>
                 <th>name</th>
                 <th>description</th>
                 <th>link</th>
-                <th>createdAt</th>
-                <th>updatedAt</th>
-                <th></th>
+                <th>Created At</th>
+                <th>manage clip</th>
             </tr>
+
         </thead>
-        <div *ngFor="let clip of clips">
-        <tr *ngIf="clip.status=='active'">
-          <th>{{clip.name}}</th>
-          <th>{{clip.description}}</th>
-          <th style="width: 100px;">{{clip.link}}</th>
-          <th>{{clip.createdAt}}</th>
-          <th>{{clip.updatedAt}}</th>
-            <th>
-                <button  class="btn btn-success" (click)="updateClip(clip._id) ">update</button>
-                <button  class="btn btn-danger" (click)="removeClip(clip._id)" [routerLink]="['clips/delete/', clip._id]"  routerLinkActive="active">delete</button>
+        <tr *ngFor="let clip of clips">
+          <script>const stringValue = '{{clip.createdAt}}';
+            let date = moment.utc(stringValue).local();</script>
+          <th *ngIf="clip.status=='active'">{{clip.name}}</th>
+          <th *ngIf="clip.status=='active'">{{clip.description}}</th>
+          <th style="width: 100px;" *ngIf="clip.status=='active'">{{clip.link}}</th>
+          <th *ngIf="clip.status=='active'">{{clip.createdAt}}</th>
+            <th *ngIf="clip.status=='active'">
+                <a  class="mx-2" *ngIf="clip.status=='active'" (click)="openUpdateClip(clip)" ><i class="fas fa-edit"></i></a>
+                <a class="mx-2" *ngIf="clip.status=='active'"  (click)="removeClip(clip._id)" [routerLink]="['clips/delete/', clip._id]"  routerLinkActive="active"><i class="fas fa-trash-alt"></i></a>
             </th>
         </tr>
-        </div>
+        <br>
+        <tr>
+      </tr>
         </table>
         </section>
         </div>
-    <!-- <button  class="btn btn-success" [routerLink]="['event/add']">add shop</button> -->
     <div *ngIf="router.url === '/admin/events'" style="margin-left:10%;padding:1px 16px;height:1000px;">
     <section  class="bg-light" id="events">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
       <h1 style="text-align: center;">Events Table</h1>
+      <a style="align-self:center;margin-bottom: 2%;margin-left: 2%; width: 5dp;margin-bottom: 10px;" (click)="openAddEvent()" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i></a>
         <table class="table" id='produits' style=" width:100% ">
         <thead class="thead-dark">
             <tr>
-              <th>name</th>
-              <th>description</th>
-              <th>link</th>
-              <th>rules</th>
-              <th>photo</th>
-              <th>createdAt</th>
-              <th>updatedAt</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Link</th>
+              <th>Rules</th>
+              <th>Photo</th>
+              <th>Created At</th>
             </tr>
         </thead>
-        <div *ngFor="let event of events ">
-        <tr *ngIf="event.status=='active'">
-          <th>{{event.name}}</th>
-            <th>{{event.description}}</th>
-            <th style="width: 100px;">{{event.link}}</th>
-            <th>{{event.rules}}</th>
-            <th style="width: 100px">{{event.photo}}</th>
-            <th>{{event.createdAt}}</th>
-            <th>{{event.updatedAt}}</th>
-            <th >
-                <!-- <button  class="btn btn-success" (click)="updateEvent()" [routerLink]="['clip/delete/{{clip.id}}']">update</button> -->
-                <button  class="btn btn-danger" (click)="removeEvent(event._id)"  [routerLink]="['events/delete/{{event.id}}']" routerLinkActive="active">delete</button>
+        <tr *ngFor="let event of events ">
+          <th *ngIf="event.status=='active'">{{event.name}}</th>
+            <th *ngIf="event.status=='active'">{{event.description}}</th>
+            <th *ngIf="event.status=='active'" style="width: 100px;">{{event.link}}</th>
+            <th *ngIf="event.status=='active'">{{event.rules}}</th>
+            <th *ngIf="event.status=='active'" style="width: 100px">{{event.photo}}</th>
+            <th *ngIf="event.status=='active'">{{event.createdAt}}</th>
+            <th *ngIf="event.status=='active'">
+                <a  class="mx-2"  (click)="openUpdateEvent(event._id)"><i class="fas fa-edit"></i></a>
+                 <a  class="mx-2" (click)="removeEvent(event._id)"  [routerLink]="['events/delete/',event._id]" routerLinkActive="active"><i class="fas fa-trash-alt"></i></a>
             </th>
         </tr>
-      </div>
     </table>
     </section>
     </div>
-    <!-- <button  class="btn btn-success" [routerLink]="['event/add']">add produit</button> -->

@@ -17,15 +17,10 @@ const routes: Routes = [
   {path:'admin/login',component:LoginComponent},
   {path:'admin',component:AdminComponent ,canActivate: [AuthGuard],children :[
     { path: 'clips', component:AdminComponent,children:[
-      {path:'update/:id',component: UpdateClipComponent},
-      {path:'delete/:id',component: AdminComponent},
-      {path:'add',component: ClipAdminComponent},
-
+      {path:'delete/:id',component: AdminComponent}
     ]},
     { path: 'events', component:AdminComponent,children:[
-      {path:'update/:id',component: EventAdminComponent},
       {path:'delete/:id',component: AdminComponent},
-      {path:'add',component: EventAdminComponent},
   ]}]}
 
 

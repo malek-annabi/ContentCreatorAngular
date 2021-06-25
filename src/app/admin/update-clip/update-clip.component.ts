@@ -1,3 +1,4 @@
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ClipService } from './../../services/clip.service';
 import { Clip } from './../../models/clip';
@@ -13,21 +14,21 @@ export class UpdateClipComponent implements OnInit {
   clip: Clip = new Clip();
   constructor(private clipService: ClipService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    public activeModal: NgbActiveModal) { }
 
 
   ngOnInit(): void {
-
-    this.id = this.route.snapshot.params['id'];
-    this.clipService.getClip(this.id).subscribe((data:any) => {
-      this.clip = data;
-    }, error => console.log(error));
-
+    console.log("hello")
   }
-
-  onSubmit(){
-    this.clipService.updateClip(this.id, this.clip).subscribe( data =>{
-      this.router.navigate(['admin']);
+  onUpdateSubmit(_id:any){
+    this.id = _id
+    this.clipService.getClip(this.id).subscribe((data:any) => {
+      console.log(data)
+      this.clip = data;
+      }, error => console.log(error));
+    this.clipService.updateClip(this.id,this.clip).subscribe( data =>{
+      console.log(data)
     }
     , error => console.log(error));
   }

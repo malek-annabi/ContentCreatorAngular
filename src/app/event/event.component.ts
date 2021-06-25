@@ -15,10 +15,8 @@ export class EventComponent implements OnInit {
     this.event.getEvents().subscribe((result: any) => {
       var tab: SafeResourceUrl[] = Array();
       result.events.forEach((element: string) => {
-        console.log(element);
         tab.push(
           this.sanitizer.bypassSecurityTrustResourceUrl(element.link.toString())
-
         );
       });
       this.links = tab;

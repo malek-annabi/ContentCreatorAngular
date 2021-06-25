@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 })
 export class EventService {
 
-  private url="http://localhost:3001/events";
+  private url="http://localhost:3500/event";
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -16,7 +16,11 @@ export class EventService {
   constructor(private http:HttpClient) {
   }
   getEvents(){
+    console.log(this.url);
     return this.http.get(this.url);
+  }
+  getEvent(id:string){
+    return this.http.get(`${this.url}/${id}`);
   }
   createEvent(data:any): Observable<any> {
     return this.http.post(this.url, data);

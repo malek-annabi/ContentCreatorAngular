@@ -1,5 +1,8 @@
+import { Event } from './../../models/event';
+import { Router } from '@angular/router';
 import { EventService } from './../../services/event.service';
 import { Component, OnInit } from '@angular/core';
+import { NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-event-admin',
@@ -7,49 +10,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./event-admin.component.css']
 })
 export class EventAdminComponent implements OnInit {
-
-  // event = {
-  //   name:'',
-  //   link: '',
-  //   description: '',
-  //  postedBy: '',
-  //  rules:'',
-  //  photo:''
-
-  // };
-  // submitted = false;
-  // constructor(private eventService:EventService) { }
+  event: Event = new Event();
+  constructor(private eventService:EventService,
+    private router:Router,
+    public activeModal:NgbActiveModal,) { }
 
   ngOnInit(): void {
   }
-  // createClip(): void {
-  //   const data = {
-  //     nom: this.event.name,
-  //     link: this.event.link,
-  //     description: this.event.description,
-  //     postedBy: this.event.postedBy,
-  //   };
-
-  //   this.eventService.createEvent(data)
-  //     .subscribe(
-  //       response => {
-  //         console.log(response);
-  //         this.submitted = true;
-  //       },
-  //       error => {
-  //         console.log(error);
-  //       });
-  // }
-
-  // newEvent(): void {
-  //   this.submitted = false;
-  //   this.event = {
-  //   name:'',
-  //   link: '',
-  //   description: '',
-  //  postedBy: '',
-  //  rules:'',
-  //  photo:''
-  //   };
-  // }
+  onAddSubmit(){
+    this.eventService.createEvent(this.event).subscribe((data:any) => {
+      this.event = data;
+      window.location.reload();
+      }, error => console.log(error));
+  }
 }
