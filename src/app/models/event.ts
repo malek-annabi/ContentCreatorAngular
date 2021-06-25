@@ -1,7 +1,7 @@
 export class Event {
   _id!:string;
   name!:string;
-  time!:string;
+  time!:Date;
   description!:string;
   photo!:string;
   status!:string;

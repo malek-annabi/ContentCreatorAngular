@@ -6,17 +6,17 @@
           <div class="form-group">
               <label> name</label>
               <input type="text" class ="form-control" id = "firstName"
-                  [(ngModel)] = "clip.name" name = "name">
+                  [(ngModel)] = "clip.name" name = "name" required>
           </div>
           <div class="form-group">
               <label> description</label>
               <input type="text" class ="form-control" id = "description"
-                  [(ngModel)] = "clip.description" name = "description">
+                  [(ngModel)] = "clip.description" name = "description" required>
           </div>
           <div class="form-group">
               <label> link</label>
               <input type="text" class ="form-control" id = "link"
-                  [(ngModel)] = "clip.link" name = "link">
+                  [(ngModel)] = "clip.link" name = "link" required>
           </div>
           <div class="modal-footer">
             <button class = "btn btn-success" type ="submit"  (click)="onUpdateSubmit(clip._id)" [routerLink]="['admin/events']"  routerLinkActive="active">Submit</button>

@@ -18,6 +18,7 @@ import { EventAdminComponent } from './admin/event-admin/event-admin.component';
 import { UpdateClipComponent } from './admin/update-clip/update-clip.component';
 import { UpdateEventComponent } from './admin/update-event/update-event.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NotifierModule } from 'angular-notifier';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    NotifierModule
   ],
   providers: [
     {

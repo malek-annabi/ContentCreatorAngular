@@ -1,26 +1,31 @@
 <div class="modal-header card" style="padding: 10px;">
   <div>
-    <h3> Event Clip </h3>
+    <h3> Update Event </h3>
     <form>
         <div class="form-group">
             <label>name</label>
-            <input [(ngModel)]="event.name" type="text" class ="form-control" id = "name" name = "name">
+            <input [(ngModel)]="event.name" type="text" class ="form-control" id = "name" name = "name" required>
         </div>
         <div class="form-group">
             <label>description</label>
-            <input [(ngModel)]="event.description" type="text" class ="form-control" id = "description" name = "description">
+            <input [(ngModel)]="event.description" type="text" class ="form-control" id = "description" name = "description" required>
+        </div>
+        <div>
+          <label>Time</label>
+          <input [(ngModel)]="event.time" type="datetime-local" class ="form-control" id = "time"
+               name = "time" required>
         </div>
         <div class="form-group">
             <label>link</label>
-            <input [(ngModel)]="event.link" type="text" class ="form-control" id = "link" name = "link">
+            <input [(ngModel)]="event.link" type="text" class ="form-control" id = "link" name = "link" required>
         </div>
         <div class="form-group">
           <label>photo</label>
-          <input [(ngModel)]="event.photo" type="text" class ="form-control" id = "photo" name = "photo">
+          <input [(ngModel)]="event.photo" type="text" class ="form-control" id = "photo" name = "photo" required>
       </div>
       <div class="form-group">
       <label>rules</label>
-      <input [(ngModel)]="event.rules" type="text" class ="form-control" id = "rules" name = "rules">
+      <input [(ngModel)]="event.rules" type="text" class ="form-control" id = "rules" name = "rules" required>
         </div>
         <div class="modal-footer">
           <button class = "btn btn-success" type ="submit"  (click)="onUpdateSubmit(event._id)" [routerLink]="['admin/events']"  routerLinkActive="active">Submit</button>

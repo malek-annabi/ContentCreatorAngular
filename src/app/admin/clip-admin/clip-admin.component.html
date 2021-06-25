@@ -5,20 +5,20 @@
       <form>
           <div class="form-group">
               <label> name</label>
-              <input [(ngModel)]="clip.name" type="text" class ="form-control" id = "firstName" name = "name">
+              <input [(ngModel)]="clip.name" type="text" class ="form-control" id = "firstName" name = "name" required>
           </div>
           <div class="form-group">
               <label> description</label>
               <input [(ngModel)]="clip.description" type="text" class ="form-control" id = "description"
-                   name = "description">
+                   name = "description" required>
           </div>
           <div class="form-group">
               <label>link</label>
               <input [(ngModel)]="clip.link" type="text" class ="form-control" id = "link"
-                  name = "link">
+                  name = "link" required>
           </div>
           <div class="modal-footer">
-            <button class = "btn btn-success" type ="submit"  (click)="onAddSubmit()"  routerLinkActive="active">Submit</button>
+            <button class = "btn btn-success" type ="submit"  (click)="onAddSubmit()"  routerLinkActive="active" type="submit">Submit</button>
             <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
           </div>
       </form>

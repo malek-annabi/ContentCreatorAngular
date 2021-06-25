@@ -8,6 +8,7 @@ import { EventService } from './../services/event.service';
 import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { UpdateClipComponent } from './update-clip/update-clip.component';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -29,11 +30,13 @@ export class AdminComponent implements OnInit {
     private clipService: ClipService,
     private eventService: EventService,
     private modalService: NgbModal,
+    private titleService: Title
     ) {}
   logout() {
     this.authService.doLogout()
   }
   ngOnInit():void{
+    this.titleService.setTitle('DOPE_USEC ADMIN');
     this.eventService.getEvents().subscribe((result)=>{
       this.events=result
       this.events=this.events.events;

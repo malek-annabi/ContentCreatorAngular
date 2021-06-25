@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ContentCreatorAngular';
+  title = 'DOPE_USEC';
   constructor(public authService: AuthService) { }
 
   logout() {

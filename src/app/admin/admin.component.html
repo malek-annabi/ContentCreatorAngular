@@ -1,3 +1,6 @@
+<head>
+<title>DOPE_USEC ADMIN</title>
+</head>
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js"></script>
 <ul class="list-group">
@@ -26,8 +29,8 @@
     <br>
     <br>
     <br>
-    <li class="btn btn-danger">
-      <a  *ngIf="authService.isLoggedIn" routerLinkActive="active" (click)="logout()">
+    <li>
+      <a  class="btn btn-danger" *ngIf="authService.isLoggedIn" routerLinkActive="active" (click)="logout()">
         logout</a>
     </li>
 </ul>
@@ -46,11 +49,10 @@
     <table style="margin-bottom: 5%;" class="table" id='clips'>
         <thead class="thead-dark">
             <tr>
-                <th>name</th>
-                <th>description</th>
-                <th>link</th>
-                <th>Created At</th>
-                <th>manage clip</th>
+                <th>NAME</th>
+                <th>DESCRIPTION</th>
+                <th>LINK</th>
+                <th>ACTIONS</th>
             </tr>
         </thead>
         <tr *ngFor="let clip of clips">
@@ -59,7 +61,6 @@
           <th *ngIf="clip.status=='active'">{{clip.name}}</th>
           <th *ngIf="clip.status=='active'">{{clip.description}}</th>
           <th style="width: 100px;" *ngIf="clip.status=='active'">{{clip.link}}</th>
-          <th *ngIf="clip.status=='active'">{{clip.createdAt}}</th>
             <th *ngIf="clip.status=='active'">
                 <a  class="mx-2" *ngIf="clip.status=='active'" (click)="openUpdateClip(clip)" ><i class="fas fa-edit"></i></a>
                 <a class="mx-2" *ngIf="clip.status=='active'"  (click)="removeClip(clip._id)" [routerLink]="['clips/delete/', clip._id]"  routerLinkActive="active"><i class="fas fa-trash-alt"></i></a>
@@ -84,21 +85,22 @@
         <table class="table" id='produits' style=" width:100% ">
         <thead class="thead-dark">
             <tr>
-              <th>Name</th>
-              <th>Description</th>
-              <th>Link</th>
-              <th>Rules</th>
-              <th>Photo</th>
-              <th>Created At</th>
+              <th>NAME</th>
+              <th>DESCRIPTION</th>
+              <th>LINK</th>
+              <th>TIME</th>
+              <th>RULES</th>
+              <th>PHOTO</th>
+              <th>ACTIONS</th>
             </tr>
         </thead>
         <tr *ngFor="let event of events ">
           <th *ngIf="event.status=='active'">{{event.name}}</th>
             <th *ngIf="event.status=='active'">{{event.description}}</th>
             <th *ngIf="event.status=='active'" style="width: 100px;">{{event.link}}</th>
+            <th *ngIf="event.status=='active'">{{event.time | date: 'short'}}</th>
             <th *ngIf="event.status=='active'">{{event.rules}}</th>
             <th *ngIf="event.status=='active'" style="width: 100px">{{event.photo}}</th>
-            <th *ngIf="event.status=='active'">{{event.createdAt}}</th>
             <th *ngIf="event.status=='active'">
                 <a  class="mx-2"  *ngIf="event.status=='active'" (click)="openUpdateEvent(event)"><i class="fas fa-edit"></i></a>
                  <a  class="mx-2" *ngIf="event.status=='active'" (click)="removeEvent(event._id)"  [routerLink]="['events/delete/',event._id]" routerLinkActive="active"><i class="fas fa-trash-alt"></i></a>
