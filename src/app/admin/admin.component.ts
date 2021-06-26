@@ -1,3 +1,5 @@
+import { DeleteEventComponent } from './../admin/delete-event/delete-event.component';
+import { DeleteClipComponent } from './../admin/delete-clip/delete-clip.component';
 import { UpdateEventComponent } from './update-event/update-event.component';
 import { EventAdminComponent } from './event-admin/event-admin.component';
 import { ClipAdminComponent } from './clip-admin/clip-admin.component';
@@ -46,32 +48,22 @@ export class AdminComponent implements OnInit {
       this.clips=this.clips.clips;
     })
   }
-  removeClip(id:any): void {
-    if(confirm("Are you sure to delete this")) {
-    this.clipService.deleteClip(id)
-      .subscribe(
-        response => {
-          console.log(response);
-        },
-        error => {
-          console.log(error);
-        });
-        window.location.reload();
-      }
+  openRemoveClip(clip:any): void {
+    const modalRef = this.modalService.open(DeleteClipComponent);
+    modalRef.componentInstance.name = 'RemoveClip';
+    modalRef.componentInstance.clip=clip;
+    modalRef.componentInstance.id=clip._id;
   }
-  removeEvent(id:any): void {
-    if(confirm("Are you sure to delete this")) {
-    this.eventService.deleteEvent(id)
-      .subscribe(
-        response => {
-          console.log(response);
-        },
-        error => {
-          console.log(error);
-        });
-        window.location.reload();
-      }
+
+  openRemoveEvent(event:any): void {
+    const modalRef = this.modalService.open(DeleteEventComponent);
+    modalRef.componentInstance.name = 'RemoveEvent';
+    modalRef.componentInstance.event=event;
+    modalRef.componentInstance.id=event._id;
   }
+
+
+
   openAddClip() {
     const modalRef = this.modalService.open(ClipAdminComponent);
     modalRef.componentInstance.name = 'AddClip';

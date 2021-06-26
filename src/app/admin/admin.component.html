@@ -63,7 +63,7 @@
           <th style="width: 100px;" *ngIf="clip.status=='active'">{{clip.link}}</th>
             <th *ngIf="clip.status=='active'">
                 <a  class="mx-2" *ngIf="clip.status=='active'" (click)="openUpdateClip(clip)" ><i class="fas fa-edit"></i></a>
-                <a class="mx-2" *ngIf="clip.status=='active'"  (click)="removeClip(clip._id)" [routerLink]="['clips/delete/', clip._id]"  routerLinkActive="active"><i class="fas fa-trash-alt"></i></a>
+                <a class="mx-2" *ngIf="clip.status=='active'"  (click)="openRemoveClip(clip)"  routerLinkActive="active"><i class="fas fa-trash-alt"></i></a>
             </th>
         </tr>
         <br>
@@ -98,12 +98,12 @@
           <th *ngIf="event.status=='active'">{{event.name}}</th>
             <th *ngIf="event.status=='active'">{{event.description}}</th>
             <th *ngIf="event.status=='active'" style="width: 100px;">{{event.link}}</th>
-            <th *ngIf="event.status=='active'">{{event.time | date: 'short'}}</th>
+            <th *ngIf="event.status=='active'">{{event.time | date:'short'}}</th>
             <th *ngIf="event.status=='active'">{{event.rules}}</th>
             <th *ngIf="event.status=='active'" style="width: 100px">{{event.photo}}</th>
             <th *ngIf="event.status=='active'">
                 <a  class="mx-2"  *ngIf="event.status=='active'" (click)="openUpdateEvent(event)"><i class="fas fa-edit"></i></a>
-                 <a  class="mx-2" *ngIf="event.status=='active'" (click)="removeEvent(event._id)"  [routerLink]="['events/delete/',event._id]" routerLinkActive="active"><i class="fas fa-trash-alt"></i></a>
+                 <a  class="mx-2" *ngIf="event.status=='active'" (click)="openRemoveEvent(event)"  routerLinkActive="active"><i class="fas fa-trash-alt"></i></a>
             </th>
         </tr>
     </table>

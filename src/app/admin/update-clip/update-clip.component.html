@@ -1,28 +1,38 @@
+<div class="modal-header card" style="padding: 10px;">
+  <div>
+    <h3> Update Clip </h3>
+    <form [formGroup]="updateClip" (ngSubmit) = "onUpdateSubmit(clip._id)">
+        <div class="form-group">
+            <label> name</label>
+            <input formControlName="name" [(ngModel)]="clip.name" type="text" class ="form-control" id = "firstName" name = "name" required>
+        </div>
+        <div *ngIf="(getControl.name.touched || isSubmitted) && getControl.name.invalid" class="text-danger">
+          <div *ngIf="getControl.name.errors?.required">name is required.</div>
+          <div *ngIf="getControl.name.errors?.minlength">Minimum 4 character are required.</div>
+        </div>
+        <div class="form-group">
+            <label> description</label>
+            <input formControlName="description"  [(ngModel)]="clip.description" type="text" class ="form-control" id = "description"
+                 name = "description" required>
+        </div>
+        <div *ngIf="(getControl.description.touched || isSubmitted) && getControl.description.invalid" class="text-danger">
+          <div *ngIf="getControl.description.errors?.required">description is required.</div>
+          <div *ngIf="getControl.description.errors?.minlength">Minimum 4 character are required.</div>
+        </div>
+        <div class="form-group">
+            <label>link</label>
+            <input formControlName="link" [(ngModel)]="clip.link" type="text" class ="form-control" id = "link"
+                name = "link" required>
+        </div>
+        <div *ngIf="(getControl.link.touched || isSubmitted) && getControl.link.invalid" class="text-danger">
+          <div *ngIf="getControl.link.errors?.required">link is required.</div>
+          <div *ngIf="getControl.link.errors?.minlength">Minimum 4 character are required.</div>
+        </div>
+        <div class="modal-footer">
+          <button class = "btn btn-success" type ="submit" (click)="activeModal.close('Close click')" routerLinkActive="active" type="submit">Submit</button>
+          <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+        </div>
+    </form>
+    </div>
 
-  <div class="modal-header card" style="padding: 10x;">
-    <div>
-      <h3> Update Clip </h3>
-      <form >
-          <div class="form-group">
-              <label> name</label>
-              <input type="text" class ="form-control" id = "firstName"
-                  [(ngModel)] = "clip.name" name = "name" required>
-          </div>
-          <div class="form-group">
-              <label> description</label>
-              <input type="text" class ="form-control" id = "description"
-                  [(ngModel)] = "clip.description" name = "description" required>
-          </div>
-          <div class="form-group">
-              <label> link</label>
-              <input type="text" class ="form-control" id = "link"
-                  [(ngModel)] = "clip.link" name = "link" required>
-          </div>
-          <div class="modal-footer">
-            <button class = "btn btn-success" type ="submit"  (click)="onUpdateSubmit(clip._id)" [routerLink]="['admin/events']"  routerLinkActive="active">Submit</button>
-            <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
-          </div>
-      </form>
-
-      </div>
 

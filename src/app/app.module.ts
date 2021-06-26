@@ -19,6 +19,10 @@ import { UpdateClipComponent } from './admin/update-clip/update-clip.component';
 import { UpdateEventComponent } from './admin/update-event/update-event.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NotifierModule } from 'angular-notifier';
+import { DeleteClipComponent } from './admin/delete-clip/delete-clip.component';
+import { DeleteEventComponent } from './admin/delete-event/delete-event.component';
+import { ClipDetailsComponent } from './admin/clip-details/clip-details.component';
+import { EventDetailsComponent } from './admin/event-details/event-details.component';
 
 
 @NgModule({
@@ -34,7 +38,11 @@ import { NotifierModule } from 'angular-notifier';
     ClipAdminComponent,
     EventAdminComponent,
     UpdateClipComponent,
-    UpdateEventComponent
+    UpdateEventComponent,
+    DeleteClipComponent,
+    DeleteEventComponent,
+    ClipDetailsComponent,
+    EventDetailsComponent
   ],
   imports: [
     BrowserModule,

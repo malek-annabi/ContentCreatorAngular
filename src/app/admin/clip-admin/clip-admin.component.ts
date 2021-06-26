@@ -1,3 +1,4 @@
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ClipService } from './../../services/clip.service';
 import { Component, OnInit } from '@angular/core';
@@ -9,16 +10,38 @@ import { Clip } from 'src/app/models/clip';
   styleUrls: ['./clip-admin.component.css']
 })
 export class ClipAdminComponent implements OnInit {
+  isSubmitted = false
+  addClip: FormGroup;
   clip: Clip = new Clip();
   constructor(private clipService:ClipService,
+    public fb: FormBuilder,
     private router:Router,
-    public activeModal:NgbActiveModal,) { }
+    public activeModal:NgbActiveModal) {
+
+      this.addClip = this.fb.group({
+      name: ['', {validators: [ Validators.required,Validators.minLength(4)],updateOn:"blur" }],
+      description:  ['', {validators: [ Validators.required,Validators.minLength(4)],updateOn:"blur" }],
+      link:  ['', {validators: [ Validators.required,Validators.minLength(4)],updateOn:"blur" }],
+    })
+
+  }
 
   ngOnInit(): void {
   }
   onAddSubmit(){
-    this.clipService.createClip(this.clip).subscribe((data:any) => {
+    this.isSubmitted = true
+    if(this.addClip.invalid)
+       return;
+      this.clipService.createClip(this.addClip.value).subscribe((data:any) => {
       this.clip = data;
+
+        window.location.reload();
+
       }, error => console.log(error));
+
+    }
+
+    get getControl(){
+    return this.addClip.controls;
   }
 }
