@@ -20,13 +20,14 @@ export class EventAdminComponent implements OnInit {
     public fb: FormBuilder,
     private router:Router,
     public activeModal:NgbActiveModal) {
+
       this.addEvent = this.fb.group({
-      name: new FormControl( '', [ Validators.required,Validators.minLength(4)]),
-      description:  new FormControl( '', [ Validators.required,Validators.minLength(4)]),
-      rules:  new FormControl( '', [ Validators.required,Validators.minLength(4)]),
-      link:  new FormControl( '', [ Validators.required,Validators.minLength(4)]),
-      photo:  new FormControl( '', [ Validators.required,Validators.minLength(4)]),
-      time:  new FormControl( '', [ Validators.required]),
+      name: ['', {validators: [ Validators.required,Validators.minLength(4)],updateOn:"blur" }],
+      description:  ['', {validators: [ Validators.required,Validators.minLength(4)],updateOn:"blur" }],
+      rules:  ['', {validators: [ Validators.required,Validators.minLength(4)],updateOn:"blur" }],
+      link:  ['', {validators: [ Validators.required,Validators.minLength(4)],updateOn:"blur" }],
+      photo: ['', {validators: [ Validators.required,Validators.minLength(4)],updateOn:"blur" }],
+      time:  ['', {validators: [ Validators.required],updateOn:"change" }]
     })
 
   }
@@ -35,28 +36,26 @@ export class EventAdminComponent implements OnInit {
   ngOnInit(): void {
 
 
-
-
   }
 
 
   onAddSubmit(){
 
 
-
-    /*
-    if(this.addEvent.invalid)
-       return;*/
-
+    this.isSubmitted = true
     console.log(this.addEvent.controls.photo)
 
 
-    /*    this.eventService.createEvent(this.addEvent.value).subscribe((data:any) => {
+    if(this.addEvent.invalid)
+       return;
+
+      this.eventService.createEvent(this.addEvent.value).subscribe((data:any) => {
       this.event = data;
-      window.location.reload();
+
+        window.location.reload();
 
       }, error => console.log(error));
-    */
+
     }
 
     get getControl(){

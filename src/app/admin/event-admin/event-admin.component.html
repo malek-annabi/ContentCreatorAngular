@@ -5,7 +5,7 @@
         <div class="form-group">
             <label>NAME</label>
             <input formControlName="name"  type="text" class ="form-control" id = "name" name = "name">
-            <div *ngIf="getControl.name.touched && getControl.name.invalid" class="text-danger">
+            <div *ngIf="(getControl.name.touched || isSubmitted) && getControl.name.invalid" class="text-danger">
               <div *ngIf="getControl.name.errors?.required">Name is required.</div>
               <div *ngIf="getControl.name.errors?.minlength">Minimum 4 character are required.</div>
             </div>
@@ -14,7 +14,7 @@
             <label> DESCRIPTION</label>
             <input  formControlName="description"  type="text" class ="form-control" id = "description"
                  name = "description">
-                 <div *ngIf="getControl.description.touched && getControl.description.invalid" class="text-danger">
+                 <div *ngIf="(getControl.description.touched || isSubmitted) && getControl.description.invalid" class="text-danger">
                   <div *ngIf="getControl.description.errors?.required">description is required.</div>
                   <div *ngIf="getControl.description.errors?.minlength">Minimum 4 character are required.</div>
                 </div>
@@ -23,7 +23,7 @@
           <label>TIME</label>
           <input formControlName="time"  type="datetime-local" class ="form-control" id = "time"
                name = "time" >
-               <div *ngIf="getControl.time.touched && getControl.time.invalid" class="text-danger">
+               <div *ngIf="(getControl.time.touched || isSubmitted) && getControl.time.invalid" class="text-danger">
                 <div *ngIf="getControl.time.errors?.required">time is required.</div>
                 <div *ngIf="getControl.time.errors?.minlength">Minimum 4 character are required.</div>
               </div>
@@ -32,7 +32,7 @@
             <label>LINK</label>
             <input formControlName="link"  type="text" class ="form-control" id = "link"
                 name = "link" >
-                <div *ngIf="getControl.link.touched && getControl.link.invalid" class="text-danger">
+                <div *ngIf="(getControl.link.touched || isSubmitted) && getControl.link.invalid" class="text-danger">
                   <div *ngIf="getControl.link.errors?.required">link is required.</div>
                   <div *ngIf="getControl.link.errors?.minlength">Minimum 4 character are required.</div>
                 </div>
@@ -41,7 +41,7 @@
           <label>PHOTO</label>
           <input formControlName="photo"  type="text" class ="form-control" id = "photo"
               name = "photo" >
-              <div *ngIf="getControl.photo.touched && getControl.photo.invalid" class="text-danger">
+              <div *ngIf="(addEvent.controls.photo.touched || isSubmitted) && getControl.photo.errors" class="text-danger">
                 <div *ngIf="getControl.photo.errors?.required">photo is required.</div>
                 <div *ngIf="getControl.photo.errors?.minlength">Minimum 4 character are required.</div>
               </div>
@@ -50,7 +50,7 @@
       <label>RULES</label>
       <input formControlName="rules"  type="text" class ="form-control" id = "rules"
           name = "rules" >
-          <div *ngIf="getControl.name.touched && getControl.rules.invalid" class="text-danger">
+          <div *ngIf="(getControl.rules.touched || isSubmitted) && getControl.rules.invalid" class="text-danger">
             <div *ngIf="getControl.rules.errors?.required">rules is required.</div>
             <div *ngIf="getControl.rules.errors?.minlength">Minimum 4 character are required.</div>
           </div>
