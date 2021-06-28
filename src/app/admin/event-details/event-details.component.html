@@ -16,9 +16,9 @@
     </h2>
     <br>
     <div>
-      <iframe class="responsive-iframe" width="1000" height="720" [src]=link title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe class="responsive-iframe" width="1000" height="720" [src]="event.link | asyncpipe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <br>
-      <img width="1000" height="720" src="{{event.photo}}">
+      <img width="1000" height="720" [src]="event.photo | asyncpipe">
       <br>
       <h2 style="margin-top: 2%;">Time : {{event.time | date:'short'}}</h2>
       <h4 style="margin-top: 2%;">Created At : {{event.createdAt | date:'short'}}</h4>

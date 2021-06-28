@@ -26,8 +26,6 @@ export class EventDetailsComponent implements OnInit {
     this.eventService.getEvent(this._id).subscribe((result:any)=>{
       this.event=result
       this.event=this.event.event;
-      this.link=this.event.link
-      this.link=this.sanitizer.bypassSecurityTrustResourceUrl(this.link)
     })
     }
     logout() {
