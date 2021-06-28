@@ -1,9 +1,12 @@
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { Clip } from './../models/clip';
+import {NgxPaginationModule} from 'ngx-pagination';
 import { DeleteEventComponent } from './../admin/delete-event/delete-event.component';
 import { DeleteClipComponent } from './../admin/delete-clip/delete-clip.component';
 import { UpdateEventComponent } from './update-event/update-event.component';
 import { EventAdminComponent } from './event-admin/event-admin.component';
 import { ClipAdminComponent } from './clip-admin/clip-admin.component';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ClipService } from './../services/clip.service';
 import { EventService } from './../services/event.service';
@@ -11,6 +14,7 @@ import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { UpdateClipComponent } from './update-clip/update-clip.component';
 import { Title } from '@angular/platform-browser';
+import { from } from 'rxjs';
 
 
 @Component({
@@ -20,16 +24,20 @@ import { Title } from '@angular/platform-browser';
 })
 
 export class AdminComponent implements OnInit {
+  term='';
+  p=0;
   id:any;
   events:any;
   clips:any;
+  activeClips=Array();
+  activeEvents=Array();
+  key: string = 'name'; //set default
+  reverse: boolean = false;
   public auth:any;
   constructor(
     private clip:ClipService,
     public authService:AuthService,
     public router:Router,
-    private activatedRoute: ActivatedRoute,
-    private clipService: ClipService,
     private eventService: EventService,
     private modalService: NgbModal,
     private titleService: Title
@@ -42,11 +50,20 @@ export class AdminComponent implements OnInit {
     this.eventService.getEvents().subscribe((result)=>{
       this.events=result
       this.events=this.events.events;
+      this.events.forEach((element: any) => {
+        if (element.status=='active')
+        this.activeEvents.push(element);
+      });
     })
     this.clip.getClips().subscribe((result)=>{
       this.clips=result
       this.clips=this.clips.clips;
+      this.clips.forEach((element: any) => {
+        if (element.status=='active')
+        this.activeClips.push(element);
+      });
     })
+
   }
   openRemoveClip(clip:any): void {
     const modalRef = this.modalService.open(DeleteClipComponent);
@@ -83,5 +100,10 @@ export class AdminComponent implements OnInit {
     modalRef.componentInstance.name = 'UpdateEvent';
     modalRef.componentInstance.event=event;
     modalRef.componentInstance.id=event._id;
+  }
+
+  sort(key:any){
+    this.key = key;
+    this.reverse = !this.reverse;
   }
 }

@@ -1,3 +1,4 @@
+import { AsyncpipePipe } from './asyncpipe.pipe';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +24,9 @@ import { DeleteClipComponent } from './admin/delete-clip/delete-clip.component';
 import { DeleteEventComponent } from './admin/delete-event/delete-event.component';
 import { ClipDetailsComponent } from './admin/clip-details/clip-details.component';
 import { EventDetailsComponent } from './admin/event-details/event-details.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { Ng2OrderModule } from 'ng2-order-pipe';
 
 
 @NgModule({
@@ -42,9 +46,11 @@ import { EventDetailsComponent } from './admin/event-details/event-details.compo
     DeleteClipComponent,
     DeleteEventComponent,
     ClipDetailsComponent,
-    EventDetailsComponent
+    EventDetailsComponent,
+    AsyncpipePipe
   ],
   imports: [
+    NgxPaginationModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -52,7 +58,11 @@ import { EventDetailsComponent } from './admin/event-details/event-details.compo
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
-    NotifierModule
+    NotifierModule,
+    Ng2SearchPipeModule,
+    Ng2OrderModule,
+
+
   ],
   providers: [
     {

@@ -1,111 +1,112 @@
 <head>
-<title>DOPE_USEC ADMIN</title>
+  <title>DOPE_USEC ADMIN</title>
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+  <!-- MDB -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
+  <!-- MDB -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js"></script>
+
 </head>
-<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js"></script>
-<ul class="list-group">
-  <br>
-  <br>
-    <li><a class="btn active" href="/admin/clips">Clips</a></li>
-    <li><a class="btn" href="/admin/events">Events</a></li>
+
+<body>
+  <ul style="margin-left: 1%;" class="list-group">
     <br>
     <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <li>
-      <a  class="btn btn-danger" *ngIf="authService.isLoggedIn" routerLinkActive="active" (click)="logout()">
+    <li><a class="btn" [ngClass]="{'active' : router.url === '/admin/clips'  || router.url === '/admin'}"
+        href="/admin/clips">Clips</a></li>
+    <li><a class="btn" [ngClass]="{'active' : router.url === '/admin/events'}" href="/admin/events">Events</a></li>
+    <li style="margin-top: 320%;">
+      <a class="btn btn-danger" *ngIf="authService.isLoggedIn" routerLinkActive="active" (click)="logout()">
         logout</a>
     </li>
-</ul>
-<div *ngIf="router.url === '/admin/clips' || router.url === '/admin'" style="margin-left:10%;padding:1px 16px;height:1000px;">
-
-  <section  class="bg-light" id="clips" >
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-      <h1 style="text-align: center;">Clips Table</h1>
-      <a style="align-self:center;margin-bottom: 2%;margin-left: 2%; width: 5dp;margin-bottom: 10px;" class="btn btn-success" (click)="openAddClip()"><i class="fa fa-plus" aria-hidden="true"></i></a>
-    <table style="margin-bottom: 5%;" class="table" id='clips'>
+  </ul>
+  <div *ngIf="router.url === '/admin/clips' || router.url === '/admin'"
+    style="margin-left:10%;padding:1px 16px;height:1000px;">
+    <section style="margin-left: 2%;" class="bg-light" id="clips">
+      <h1 style="text-align: center; margin-top: 10%;">Clips Table</h1>
+      <nav class="navbar">
+        <a style="margin-top:2%;margin-left: 2%; width: 5dp;" class="btn btn-success" (click)="openAddClip()"><i
+            class="fa fa-2x fa-plus" aria-hidden="true"></i></a>
+        <input style="width: 20%;" [(ngModel)]="term" type="text" name="search"><i class="fas fa-search"></i>
+      </nav>
+      <table style="margin-bottom: 5%;" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%"
+        id='clips'>
         <thead class="thead-dark">
-            <tr>
-                <th>NAME</th>
-                <th>DESCRIPTION</th>
-                <th>LINK</th>
-                <th>ACTIONS</th>
-            </tr>
+          <tr>
+            <th class="th-sm">NAME</th>
+            <th class="th-sm">DESCRIPTION</th>
+            <th class="th-sm">LINK</th>
+            <th class="th-sm">ACTIONS</th>
+          </tr>
         </thead>
-        <tr *ngFor="let clip of clips">
-          <script>const stringValue = '{{clip.createdAt}}';
-            let date = moment.utc(stringValue).local();</script>
-          <th *ngIf="clip.status=='active'">{{clip.name}}</th>
-          <th *ngIf="clip.status=='active'">{{clip.description}}</th>
-          <th style="width: 100px;" *ngIf="clip.status=='active'">{{clip.link}}</th>
-            <th *ngIf="clip.status=='active'">
-                <a  class="mx-2" *ngIf="clip.status=='active'" (click)="openUpdateClip(clip)" ><i class="fas fa-edit"></i></a>
-                <a class="mx-2" *ngIf="clip.status=='active'"  (click)="openRemoveClip(clip)"  routerLinkActive="active"><i class="fas fa-trash-alt"></i></a>
-            </th>
+        <tr *ngFor="let clip of activeClips | paginate: { itemsPerPage: 5, currentPage: p } | filter:term">
+          <th>{{clip.name}}</th>
+          <th>{{clip.description}}</th>
+          <th style="width: 20%;">{{clip.link}}</th>
+          <th>
+            <a class="mx-2" [routerLink]="['clips/details/',clip._id]" routerLinkActive="active-link"><br><i
+                class="fa-2x fas fa-info-circle"></i></a>
+            <a class="mx-2" (click)="openUpdateClip(clip)"><i class="fas fa-2x fa-edit"></i></a>
+            <a class="mx-2" (click)="openRemoveClip(clip)" routerLinkActive="active"><i
+                class="fas fa-2x fa-trash-alt"></i></a>
+          </th>
         </tr>
-        <br>
-        <tr>
-      </tr>
-        </table>
-        </section>
-        </div>
-    <div *ngIf="router.url === '/admin/events'" style="margin-left:10%;padding:1px 16px;height:1000px;">
-    <section  class="bg-light" id="events">
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <h1 style="text-align: center;">Events Table</h1>
-      <a style="align-self:center;margin-bottom: 2%;margin-left: 2%; width: 5dp;margin-bottom: 10px;" (click)="openAddEvent()" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i></a>
-        <table class="table" id='produits' style=" width:100% ">
-        <thead class="thead-dark">
-            <tr>
-              <th>NAME</th>
-              <th>DESCRIPTION</th>
-              <th>LINK</th>
-              <th>TIME</th>
-              <th>RULES</th>
-              <th>PHOTO</th>
-              <th>ACTIONS</th>
-            </tr>
-        </thead>
-        <tr *ngFor="let event of events ">
-          <th *ngIf="event.status=='active'">{{event.name}}</th>
-            <th *ngIf="event.status=='active'">{{event.description}}</th>
-            <th *ngIf="event.status=='active'" style="width: 100px;">{{event.link}}</th>
-            <th *ngIf="event.status=='active'">{{event.time | date:'short'}}</th>
-            <th *ngIf="event.status=='active'">{{event.rules}}</th>
-            <th *ngIf="event.status=='active'" style="width: 100px">{{event.photo}}</th>
-            <th *ngIf="event.status=='active'">
-                <a  class="mx-2"  *ngIf="event.status=='active'" (click)="openUpdateEvent(event)"><i class="fas fa-edit"></i></a>
-                 <a  class="mx-2" *ngIf="event.status=='active'" (click)="openRemoveEvent(event)"  routerLinkActive="active"><i class="fas fa-trash-alt"></i></a>
-            </th>
-        </tr>
-    </table>
+      </table>
+      <div style="align-items: center;margin-left: 35%;">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
     </section>
-    </div>
+  </div>
+
+
+
+
+
+
+  <div style="margin-left:10%;padding:1px 16px;height:1000px;" *ngIf="router.url === '/admin/events'" >
+    <section style="margin-left: 2%;" class="bg-light" id="events">
+      <h1 style="text-align: center; margin-top: 10%;">Events Table</h1>
+      <nav class="navbar">
+        <a style="margin-top:2%;margin-left: 2%; width: 5dp;" class="btn btn-success" (click)="openAddEvent()"><i
+            class="fa fa-2x fa-plus" aria-hidden="true"></i></a>
+        <input style="width: 20%;" [(ngModel)]="term" type="text" name="search"><i class="fas fa-search"></i>
+      </nav>
+      <table style="margin-bottom: 5%;" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%"
+        id='events'>
+        <thead class="thead-dark">
+          <tr>
+            <th class="th-sm">NAME</th>
+            <th class="th-sm">DESCRIPTION</th>
+            <th class="th-sm">LINK</th>
+            <th class="th-sm">TIME</th>
+            <th class="th-sm">RULES</th>
+            <th class="th-sm">PHOTO</th>
+            <th class="th-sm">ACTIONS</th>
+          </tr>
+        </thead>
+        <tr *ngFor="let event of activeEvents | paginate: { itemsPerPage: 5, currentPage: p} | filter:term">
+          <th>{{event.name}}</th>
+          <th>{{event.description}}</th>
+          <th style="width: 10%;">{{event.link}}</th>
+          <th>{{event.time | date:'short'}}</th>
+          <th>{{event.rules}}</th>
+          <th style="width: 10%;">{{event.photo}}</th>
+          <th>
+            <a class="mx-2" [routerLink]="['events/details',event._id]" routerLinkActive="active-link"><i class="fa-2x fas fa-info-circle"></i></a>
+            <a class="mx-2" (click)="openUpdateEvent(event)"><i class="fa-2x fas fa-edit"></i></a>
+            <a class="mx-2" (click)="openRemoveEvent(event)" routerLinkActive="active"><i class="fa-2x fas fa-trash-alt"></i></a>
+          </th>
+        </tr>
+      </table>
+      <div style="align-items: center;margin-left: 45%;">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </section>
+  </div>
+</body>

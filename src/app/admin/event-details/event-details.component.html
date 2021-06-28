@@ -1,1 +1,44 @@
-<p>event-details works!</p>
+<ul style="margin-left: 1%;" class="list-group">
+  <br>
+  <br>
+    <li><a class="btn" [ngClass]="{'active' : router.url === '/admin/clips'  || router.url === '/admin'}" href="/admin/clips">Clips</a></li>
+    <li><a class="btn" [ngClass]="{'active' : router.url === '/admin/events'}" href="/admin/events">Events</a></li>
+    <li style="margin-top: 320%;">
+      <a  class="btn btn-danger" *ngIf="authService.isLoggedIn" routerLinkActive="active" (click)="logout()">
+        logout</a>
+    </li>
+</ul>
+<div style="margin-left: 20%;margin-top: 3%;" class="container bootdey">
+  <div class="col-md-12">
+  <section class="panel" >
+    <h2 class="pro-d-title">
+      {{event.name}}
+    </h2>
+    <br>
+    <div>
+      <iframe class="responsive-iframe" width="1000" height="720" [src]=link title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <br>
+      <img width="1000" height="720" src="{{event.photo}}">
+      <br>
+      <h2 style="margin-top: 2%;">Time : {{event.time | date:'short'}}</h2>
+      <h4 style="margin-top: 2%;">Created At : {{event.createdAt | date:'short'}}</h4>
+      <h4>last Update : {{event.updatedAt | date:'short'}}</h4>
+    </div>
+      <div style="text-align: left;margin-top: 2%;" class="col-md-6">
+        <h3>description :</h3>
+        <p style="text-align: left;">
+          {{event.description}}
+        </p>
+        <br>
+        <h3 style="text-align: left;" >Rules :</h3>
+        <p style="text-align: left;">
+          {{event.rules}}
+        </p>
+        </div>
+        <a  class="mx-2 btn btn-success"  (click)='back()'>Back</a>
+        <br>
+        <br>
+    </section>
+    </div>
+    </div>
+
