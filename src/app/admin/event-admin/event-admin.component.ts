@@ -25,7 +25,7 @@ export class EventAdminComponent implements OnInit {
       name: ['', {validators: [ Validators.required,Validators.minLength(4)],updateOn:"blur" }],
       description:  ['', {validators: [ Validators.required,Validators.minLength(4)],updateOn:"blur" }],
       rules:  ['', {validators: [ Validators.required,Validators.minLength(4)],updateOn:"blur" }],
-      link:  ['', {validators: [ Validators.required,Validators.minLength(4)],updateOn:"blur" }],
+      link:  [''],
       photo: ['', {validators: [ Validators.required,Validators.minLength(4)],updateOn:"blur" }],
       time:  ['', {validators: [ Validators.required],updateOn:"change" }]
     })

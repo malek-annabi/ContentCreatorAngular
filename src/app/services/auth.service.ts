@@ -24,22 +24,24 @@ export class AuthService {
   signIn(user: User) {
     return this.http.post<any>(`${this.endpoint}/login`, user)
       .subscribe((res: any) => {
+        //setting
         localStorage.setItem('access_token', res.token);
-        localStorage.setItem('username',res.username);
-        localStorage.setItem('_id',res._id);
         this.router.navigate(['admin']);
       })
   }
 
+  // access token
   getToken() {
     return localStorage.getItem('access_token');
   }
 
+  //login verification
   get isLoggedIn(): boolean {
     let authToken = localStorage.getItem('access_token');
     return (authToken !== null) ? true : false;
   }
 
+  // remove token(logout)
   doLogout() {
     let removeToken = localStorage.removeItem('access_token');
     if (removeToken == null) {

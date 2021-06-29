@@ -1,10 +1,10 @@
 <app-head></app-head>
-<div style="align-items: center;" *ngFor="let event of events;let i = index;">
+<div style="align-items: center;" *ngFor="let event of activeEvents">
 <section class="event-card">
   <header class="header">
-    <h1 class="heading">{{events[i].name}}</h1>
+    <h1 class="heading">{{event.name}}</h1>
     <div class="event-image-wrapper">
-      <img class="event-image" src="{{events[i].photo}}">
+      <img *ngIf="event.photo" src="{{event.photo | asyncpipe}}">
     </div>
   </header>
   <div class="event-details">
@@ -12,19 +12,19 @@
 
   <br>
   <time class="date">
-    <div>{{events[i].time | date:'short'}}</div>
+    <div>{{event.time | date:'short'}}</div>
   </time>
-  <div class="header">{{events[i].description}}</div>
+  <div class="header">{{event.description}}</div>
   <br>
   <div class="header" style="font-size: x-large;">Rules :
     <br>
-    {{events[i].rules}}
+    {{event.rules}}
     <br>
     <br>
   </div>
 </section>
-<div *ngIf="links[i]">
-<iframe class="responsive-iframe" width="1510" height="850" [src]=links[i] title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div *ngIf="event.link">
+  <iframe class="responsive-iframe" width="1510" height="850" [src]="event.link | asyncpipe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 </div>
 <br>

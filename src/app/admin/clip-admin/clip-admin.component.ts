@@ -28,19 +28,23 @@ export class ClipAdminComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  //submit add clip
   onAddSubmit(){
+    //if not valid
     this.isSubmitted = true
     if(this.addClip.invalid)
        return;
+       //sending clip
       this.clipService.createClip(this.addClip.value).subscribe((data:any) => {
       this.clip = data;
 
         window.location.reload();
 
+        //server error
       }, error => console.log(error));
 
     }
-
+    //gettting controls
     get getControl(){
     return this.addClip.controls;
   }

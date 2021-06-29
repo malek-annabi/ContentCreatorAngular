@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./event-details.component.css']
 })
 export class EventDetailsComponent implements OnInit {
+  //oused variables
   _id:any;
   event:any;
   link:any;
@@ -20,17 +21,24 @@ export class EventDetailsComponent implements OnInit {
     public authService:AuthService) { }
 
   ngOnInit(): void {
+
+    //getting route parameters
     this.route.params.subscribe(params => {
       this._id = params['_id'];
     });
+    //getting events
     this.eventService.getEvent(this._id).subscribe((result:any)=>{
       this.event=result
       this.event=this.event.event;
     })
     }
+    //logout method
     logout() {
       this.authService.doLogout()
     }
+
+
+    //back to admin pannel
     back(){
       this.router.navigate(['admin/events'])
     }

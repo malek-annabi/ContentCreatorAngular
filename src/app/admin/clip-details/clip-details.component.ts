@@ -10,6 +10,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   styleUrls: ['./clip-details.component.css']
 })
 export class ClipDetailsComponent implements OnInit {
+  //used vars
   _id:any;
   clip:any;
   link:any;
@@ -20,17 +21,21 @@ export class ClipDetailsComponent implements OnInit {
     public authService:AuthService) { }
 
   ngOnInit(): void {
+    // route params
     this.route.params.subscribe(params => {
       this._id = params['_id'];
     });
+    // getting clips
     this.clipService.getClip(this._id).subscribe((result:any)=>{
       this.clip=result
       this.clip=this.clip.clip;
     })
     }
+    //logout
     logout() {
       this.authService.doLogout()
     }
+    //back to pannel
     back(){
       this.router.navigate(['admin/clips'])
     }

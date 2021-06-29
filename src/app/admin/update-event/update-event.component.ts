@@ -23,7 +23,7 @@ export class UpdateEventComponent implements OnInit {
       name: ['', {validators: [ Validators.required,Validators.minLength(4)],updateOn:"blur" }],
       description:  ['', {validators: [ Validators.required,Validators.minLength(4)],updateOn:"blur" }],
       rules:  ['', {validators: [ Validators.required,Validators.minLength(4)],updateOn:"blur" }],
-      link:  ['', {validators: [ Validators.required,Validators.minLength(4)],updateOn:"blur" }],
+      link:  [''],
       photo: ['', {validators: [ Validators.required,Validators.minLength(4)],updateOn:"blur" }],
       time:  ['', {validators: [ Validators.required],updateOn:"change" }]
     })
@@ -34,13 +34,15 @@ export class UpdateEventComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
+//update method
   onUpdateSubmit(_id:any){
+    // if invailed reload page so the user don't have to retype the event details
     this.isSubmitted = true
     if(this.updateEvent.invalid){
         window.location.reload();
        return;
     }
+    // sending event
 
        this.eventService.updateEvent(_id,this.event).subscribe( data =>{
         this.event=data;
@@ -49,7 +51,7 @@ export class UpdateEventComponent implements OnInit {
       }, error => console.log(error));
 
     }
-
+// getting cotrols
     get getControl(){
     return this.updateEvent.controls;
   }

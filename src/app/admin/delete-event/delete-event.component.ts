@@ -19,7 +19,7 @@ export class DeleteEventComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
+  //delete method
   onDelete(_id:any){
       this.eventService.deleteEvent(_id).subscribe((res:any) => {
       window.location.reload();

@@ -2,16 +2,19 @@
 <app-head></app-head>
             <!-- Masthead-->
 <script src= "https://player.twitch.tv/js/embed/v1.js"></script>
-        <header class="masthead">
+        <header class="masthead" id='top-page'>
             <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
                 <div class="d-flex justify-content-center">
                     <div class="text-center">
                         <h1 class="mx-auto my-0 text-uppercase">USEC MICROWAVE</h1>
                         <h2 class="text-white-50 mx-auto mt-2 mb-5">A free, responsive, one page Bootstrap theme created by Start Bootstrap.</h2>
-                        <a class="btn btn-primary" href="#about">Get Started</a>
+                        <a class="btn btn-primary" href="#about">About Me</a>
+
                     </div>
+
                 </div>
             </div>
+
         </header>
         <!-- About-->
         <section class="about-section text-center" id="about">
@@ -23,10 +26,21 @@
                             My name is Basti i'm a German content creator , i'm 32 years old .
                             I stream on twitch and upload videos on youtube from time to time .
                         </p>
+                        <table>
+                          <tr>
+                            <th>
+                          <iframe [src]="usecmicrowave | asyncpipe" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
+                        </th>
+                        <th>
+                          <iframe [src]="'https://www.twitch.tv/embed/dope_usec/chat?parent=localhost'| asyncpipe"
+                          height="378" width="300" ></iframe>
+                        </th>
+                          </tr>
+                        </table>
+                        <br>
                     </div>
                 </div>
-
-            </div>
+              </div>
         </section>
         <!-- clips-->
         <br>
