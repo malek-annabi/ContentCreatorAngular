@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  usecmicrowave = "https://player.twitch.tv/?channel=dope_usec&parent=localhost";
+  usecmicrowave = "https://player.twitch.tv/?channel=dope_usec&parent=malek-annabi.github.io";
   constructor(){}
   ngOnInit():void{
 
