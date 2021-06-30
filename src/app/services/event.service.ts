@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 })
 export class EventService {
 
-  private url="http://localhost:3500/event";
+  private url="https://ancient-coast-46533.herokuapp.com/event";
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'

@@ -9,7 +9,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class ClipService {
 
-  private url="http://localhost:3500/clip";
+  private url="https://ancient-coast-46533.herokuapp.com/clip";
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'

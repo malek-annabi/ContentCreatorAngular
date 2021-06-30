@@ -8,7 +8,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class HomesService {
-  private url="http://localhost:3001/";
+  private url="https://ancient-coast-46533.herokuapp.com/";
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
