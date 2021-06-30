@@ -47,7 +47,10 @@ export class AdminComponent implements OnInit {
   }
   ngOnInit():void{
     this.titleService.setTitle('DOPE_USEC ADMIN');
+
+
     console.log(this.router.url)
+
     this.eventService.getEvents().subscribe((result)=>{
 
       console.log(result)
