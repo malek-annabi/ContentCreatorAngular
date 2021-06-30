@@ -37,7 +37,7 @@ export class ClipDetailsComponent implements OnInit {
     }
     //back to pannel
     back(){
-      this.router.navigate(['ContentCreatorAngular/admin/clips'])
+      this.router.navigate(['admin/clips'])
     }
 
 }

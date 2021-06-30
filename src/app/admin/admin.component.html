@@ -20,9 +20,12 @@
   <ul style="margin-left: 1%;" class="list-group">
     <br>
     <br>
-    <li><a class="btn" [ngClass]="{'active' : router.url === 'ContentCreatorAngular/admin/clips'  || router.url === 'ContentCreatorAngular/admin'}"
-        href="ContentCreatorAngular/admin/clips">Clips</a></li>
-    <li><a class="btn" [ngClass]="{'active' : router.url === 'ContentCreatorAngular/admin/events'}" href="ContentCreatorAngular/admin/events">Events</a></li>
+    <li><a class="btn" [ngClass]="{'active' : router.url === '
+      admin/clips'  || router.url === '
+      admin'}"
+        href="admin/clips">Clips</a></li>
+    <li><a class="btn" [ngClass]="{'active' : router.url === 'ContentCreatorAngular/admin/events'}" href="
+      admin/events">Events</a></li>
     <li style="margin-top: 320%;">
       <a class="btn btn-danger" *ngIf="authService.isLoggedIn" routerLinkActive="active" (click)="logout()">
         logout</a>
@@ -30,11 +33,11 @@
   </ul>
 
   <!-- clips section -->
-  <div *ngIf="router.url === 'ContentCreatorAngular/admin/clips' || router.url === 'ContentCreatorAngular/admin'"
+  <div *ngIf="router.url === 'admin/clips' || router.url === 'admin'"
     style="margin-left:10%;padding:1px 16px;height:1000px;">
     <section style="margin-left: 2%;" class="bg-light" id="clips">
       <h1 style="text-align: center; margin-top: 10%;">Clips Table</h1>
-      <a class="btn" style="margin-left: 90%;background-color: lightblue;" [routerLink]="['/ContentCreatorAngular']"><i class="fas fa-home"></i></a>
+      <a class="btn" style="margin-left: 90%;background-color: lightblue;" [routerLink]="['']"><i class="fas fa-home"></i></a>
       <!-- add + search -->
       <nav class="navbar">
         <a style="margin-top:2%;margin-left: 2%; width: 5dp;" class="btn btn-success" (click)="openAddClip()"><i
@@ -77,7 +80,8 @@
 
 
 <!-- eventes section -->
-  <div style="margin-left:10%;padding:1px 16px;height:1000px;" *ngIf="router.url === 'ContentCreatorAngular/admin/events'" >
+  <div style="margin-left:10%;padding:1px 16px;height:1000px;" *ngIf="router.url === '
+  admin/events'" >
     <section style="margin-left: 2%;" class="bg-light" id="events">
       <h1 style="text-align: center; margin-top: 10%;">Events Table</h1>
       <a class="btn" style="margin-left: 90%;background-color: lightblue;" [routerLink]="['ContentCreatorAngular/']"><i class="fas fa-home"></i></a>
@@ -109,7 +113,9 @@
           <th>{{event.rules}}</th>
           <th style="width: 10%;">{{event.photo}}</th>
           <th>
-            <a class="mx-2" [routerLink]="['ContentCreatorAngular/events/details',event._id]" routerLinkActive="active-link"><i class="fa-2x fas fa-info-circle"></i></a>
+            <a class="mx-2" [routerLink]="['
+
+            events/details',event._id]" routerLinkActive="active-link"><i class="fa-2x fas fa-info-circle"></i></a>
             <a class="mx-2" (click)="openUpdateEvent(event)"><i class="fa-2x fas fa-edit"></i></a>
             <a class="mx-2" (click)="openRemoveEvent(event)" routerLinkActive="active"><i class="fa-2x fas fa-trash-alt"></i></a>
           </th>
