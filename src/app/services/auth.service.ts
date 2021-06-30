@@ -26,7 +26,7 @@ export class AuthService {
       .subscribe((res: any) => {
         //setting
         localStorage.setItem('access_token', res.token);
-        this.router.navigate(['ContentCreatorAngular/admin']);
+        this.router.navigate(['admin']);
       })
   }
 
