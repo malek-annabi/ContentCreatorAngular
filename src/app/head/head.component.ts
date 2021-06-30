@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 export class HeadComponent implements OnInit {
   term='';
 
-  constructor() { }
+  constructor(public router:Router) { }
 
   ngOnInit(): void {
   }
 
+
+
+  moveToWelcome()
+  {
+
+    location.href = "#clips"
+    this.router.navigate([''])
+
+  }
 }
