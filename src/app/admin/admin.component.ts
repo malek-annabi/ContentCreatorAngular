@@ -48,14 +48,16 @@ export class AdminComponent implements OnInit {
   ngOnInit():void{
     this.titleService.setTitle('DOPE_USEC ADMIN');
     this.eventService.getEvents().subscribe((result)=>{
+      console.log(result)
       this.events=result
-      this.events=this.events.events;
+      this.events=this.events;
       this.events.forEach((element: any) => {
         if (element.status=='active')
         this.activeEvents.push(element);
       });
     })
     this.clip.getClips().subscribe((result)=>{
+      console.log(result)
       this.clips=result
       this.clips=this.clips.clips;
       this.clips.forEach((element: any) => {
