@@ -20,9 +20,9 @@
   <ul style="margin-left: 1%;" class="list-group">
     <br>
     <br>
-    <li><a class="btn" [ngClass]="{'active' : router.url === 'ContentCreatorAngular/admin/clips'  || router.url === 'ContentCreatorAngular/admin'}"
+    <li><a class="btn" [ngClass]="{'active' : router.url === 'admin/clips'  || router.url === 'admin'}"
         href="admin/clips">Clips</a></li>
-    <li><a class="btn" [ngClass]="{'active' : router.url === 'ContentCreatorAngular/admin/events'}" href="
+    <li><a class="btn" [ngClass]="{'active' : router.url === 'admin/events'}" href="
       admin/events">Events</a></li>
     <li style="margin-top: 320%;">
       <a class="btn btn-danger" *ngIf="authService.isLoggedIn" routerLinkActive="active" (click)="logout()">
@@ -31,7 +31,7 @@
   </ul>
 
   <!-- clips section -->
-  <div *ngIf="router.url === 'ContentCreatorAngular/admin/clips' || router.url === 'ContentCreatorAngular/admin'"
+  <div *ngIf="router.url === 'admin/clips' || router.url === 'admin'"
     style="margin-left:10%;padding:1px 16px;height:1000px;">
     <section style="margin-left: 2%;" class="bg-light" id="clips">
       <h1 style="text-align: center; margin-top: 10%;">Clips Table</h1>
@@ -78,7 +78,7 @@
 
 
 <!-- eventes section -->
-  <div style="margin-left:10%;padding:1px 16px;height:1000px;" *ngIf="router.url === 'ContentCreatorAngular/admin/events'" >
+  <div style="margin-left:10%;padding:1px 16px;height:1000px;" *ngIf="router.url === 'admin/events'" >
     <section style="margin-left: 2%;" class="bg-light" id="events">
       <h1 style="text-align: center; margin-top: 10%;">Events Table</h1>
       <a class="btn" style="margin-left: 90%;background-color: lightblue;" [routerLink]="['']"><i class="fas fa-home"></i></a>
