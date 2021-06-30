@@ -41,7 +41,10 @@ export class UpdateClipComponent implements OnInit {
        return;
     }
     // sending new clip infos
-      this.clipService.updateClip(_id,this.updateClip.value).subscribe((data:any) => {
+    console.log(this.updateClip.value)
+
+
+    this.clipService.updateClip(_id,this.updateClip.value).subscribe((data:any) => {
       this.clip = data;
 
       //server errors

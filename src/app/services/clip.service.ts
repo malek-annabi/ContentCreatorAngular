@@ -21,12 +21,15 @@ export class ClipService {
   getClips(){
     return this.http.get(this.url);
   }
+
   getClip(id:string){
     return this.http.get(`${this.url}/${id}`);
   }
+
   createClip(data:any): Observable<any> {
     return this.http.post(this.url, data);
   }
+
   updateClip(id:string, data:any): Observable<any> {
     return this.http.patch(`${this.url}/${id}`, data);
   }
