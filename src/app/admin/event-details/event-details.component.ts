@@ -40,6 +40,6 @@ export class EventDetailsComponent implements OnInit {
 
     //back to admin pannel
     back(){
-      this.router.navigate(['ContentCreatorAngular/admin/events'])
+      this.router.navigate(['admin/events'])
     }
 }
