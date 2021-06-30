@@ -1,5 +1,5 @@
 <app-head></app-head>
-<div style="align-items: center;" *ngFor="let event of activeEvents">
+<div style="align-items: center;" *ngFor="let event of activeEvents.slice().reverse()">
 <section class="event-card">
   <header class="header">
     <h1 class="heading">{{event.name}}</h1>

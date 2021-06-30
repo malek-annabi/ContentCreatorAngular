@@ -1,6 +1,6 @@
 <div style="text-align:center;" id="clips">
   <input style="width: 20%;margin-left: 70%;" [(ngModel)]="term" type="text" name="search"><i style="margin-right: 0%;" class="fas fa-search"></i>
-  <table style="width:100%; content:center" *ngFor="let clip of activeClips | filter:term">
+  <table style="width:100%; content:center" *ngFor="let clip of activeClips.slice().reverse() | filter:term">
       <tr>
          <th *ngIf="clip.status=='active'">
          <h4>{{clip.name}}</h4>
