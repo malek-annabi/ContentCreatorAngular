@@ -11,8 +11,8 @@ export class EventComponent implements OnInit {
   activeEvents=Array();
   constructor(private event: EventService) {}
   ngOnInit(): void {
-      this.event.getEvents().subscribe((result) => {this.events=result;
-        this.events=this.events.events;
+      this.event.getEvents().subscribe((result) => {
+        this.events=result;
         this.events.forEach((element: any) => {
           if (element.status=='active')
           this.activeEvents.push(element);

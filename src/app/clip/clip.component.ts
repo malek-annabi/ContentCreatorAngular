@@ -16,7 +16,6 @@ export class ClipComponent implements OnInit {
     // getting all vlips
     this.clip.getClips().subscribe((result)=>{
       this.clips=result
-      this.clips=this.clips.clips;
       // selecting only the active status clips
       this.clips.forEach((element: any) => {
         if (element.status=='active')
