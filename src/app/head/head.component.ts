@@ -23,4 +23,14 @@ export class HeadComponent implements OnInit {
     this.router.navigate([''])
 
   }
+
+  moveToAbout()
+  {
+
+    location.href = "#about"
+    this.router.navigate([''])
+
+  }
+
+
 }

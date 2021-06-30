@@ -5,8 +5,8 @@
         <a class="navbar-brand" style="color: lightcoral"  href="#page-top">DOPE_USEC</a>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" style="color:lightcoral"  [routerLink]="['']" href="#about" routerLinkActive="router-link-active">About</a></li>
-                <li class="nav-item"><a class="nav-link" style="color: lightcoral" (click)="moveToWelcome()" routerLinkActive="router-link-active">Clips</a></li>
+                <li class="nav-item"><a class="nav-link" style="color:lightcoral;cursor: pointer;"  (click)="moveToAbout()" routerLinkActive="router-link-active">About</a></li>
+                <li class="nav-item"><a class="nav-link" style="color: lightcoral;cursor: pointer;" (click)="moveToWelcome()" routerLinkActive="router-link-active">Clips</a></li>
                 <li class="nav-item"><a class="nav-link" style="color: lightcoral" [routerLink]="['events']" routerLinkActive="router-link-active">Events</a></li>
             </ul>
         </div>
