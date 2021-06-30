@@ -15,14 +15,14 @@ import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
-  {path:'ContentCreatorAngular/events',component:EventComponent},
-  {path:'ContentCreatorAngular/admin/login',component:LoginComponent},
-  {path:'ContentCreatorAngular/admin',component:AdminComponent ,canActivate: [AuthGuard],children :[
-    { path: 'ContentCreatorAngular/clips', component:AdminComponent},
-    { path: 'ContentCreatorAngular/events', component:AdminComponent,}]
+  {path:'events',component:EventComponent},
+  {path:'admin/login',component:LoginComponent},
+  {path:'admin',component:AdminComponent ,canActivate: [AuthGuard],children :[
+    { path: 'clips', component:AdminComponent},
+    { path: 'events', component:AdminComponent,}]
   },
-  {path:'ContentCreatorAngular/admin/clips/details/:_id',canActivate: [AuthGuard],component:ClipDetailsComponent},
-  {path:'ContentCreatorAngular/admin/events/details/:_id',canActivate: [AuthGuard],component:EventDetailsComponent}
+  {path:'admin/clips/details/:_id',canActivate: [AuthGuard],component:ClipDetailsComponent},
+  {path:'admin/events/details/:_id',canActivate: [AuthGuard],component:EventDetailsComponent}
 
 
 ];
