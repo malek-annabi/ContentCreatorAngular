@@ -78,8 +78,8 @@
 
 
 <!-- eventes section -->
-  <div style="margin-left:10%;padding:1px 16px;height:1000px;" *ngIf="this.router.url === '/admin/events'" >
-    <section style="margin-left: 2%;" class="bg-light" id="events">
+  <div style="margin-left:10%;padding:1px 16px;height:100%;width: 100%;" *ngIf="this.router.url === '/admin/events'" >
+    <section style="margin-left: 2%;height:100%;width: 100%;" class="bg-light" id="events">
       <h1 style="text-align: center; margin-top: 10%;">Events Table</h1>
       <a class="btn" style="margin-left: 90%;background-color: lightblue;" [routerLink]="['']"><i class="fas fa-home"></i></a>
 <!-- add + search -->
@@ -89,7 +89,7 @@
         <input style="width: 20%;margin-left: 70%;" [(ngModel)]="term" type="text" name="search"><i style="margin-right: 0%;" class="fas fa-search"></i>
       </nav>
       <!-- events table -->
-      <table style="margin-bottom: 5%;" class="table table-striped table-bordered table-sm" cellspacing="0" width="1000px"
+      <table style="margin-bottom: 5%;" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%"
         id='events'>
         <thead class="thead-dark">
           <tr>
@@ -108,7 +108,7 @@
           <th style="width: 10%;">{{event.link}}</th>
           <th>{{event.time | date:'short'}}</th>
           <th>{{event.rules}}</th>
-          <th style="width: 10%;">{{event.photo}}</th>
+          <th  style="max-width:10%!important;word-wrap:break-word!important;">{{event.photo}}</th>
           <th>
             <a class="mx-2" [routerLink]="['details',event._id]" routerLinkActive="active-link"><i class="fa-2x fas fa-info-circle"></i></a>
             <a class="mx-2" (click)="openUpdateEvent(event)"><i class="fa-2x fas fa-edit"></i></a>

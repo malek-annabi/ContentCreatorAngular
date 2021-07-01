@@ -1,13 +1,10 @@
 <div style="text-align:center;" id="clips">
   <input style="width: 20%;margin-left: 70%;" [(ngModel)]="term" type="text" name="search"><i style="margin-right: 0%;" class="fas fa-search"></i>
-  <table style="width:100%; content:center" *ngFor="let clip of activeClips.slice().reverse() | filter:term">
-      <tr>
-         <th *ngIf="clip.status=='active'">
+  <div style="width:100%; content:center;" *ngFor="let clip of activeClips.slice().reverse() | filter:term">
+         <div style="height: 50%;">
          <h4>{{clip.name}}</h4>
           <p class="text-black-50 mb-0">{{clip.description}}</p>
-          <br>
-          <iframe [src]="clip.link | asyncpipe" height="400" width="700" allowfullscreen="true"></iframe>
-          </th>
-      </tr>
-  </table>
+          <iframe [src]="clip.link | asyncpipe" height="400px" width="50%" allowfullscreen="true"></iframe>
+      </div>
+    </div>
   </div>
