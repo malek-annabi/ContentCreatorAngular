@@ -1,14 +1,60 @@
- <!-- Navigation-->
- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
- <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: darkgray; height: 5%;width: 100%;"  id="page-top">
-    <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" style="color: lightcoral"  href="#page-top">DOPE_USEC</a>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" style="color:lightcoral;cursor: pointer;"  (click)="moveToAbout()" routerLinkActive="router-link-active">About</a></li>
-                <li class="nav-item"><a class="nav-link" style="color: lightcoral;cursor: pointer;" (click)="moveToWelcome()" routerLinkActive="router-link-active">Clips</a></li>
-                <li class="nav-item"><a class="nav-link" style="color: lightcoral" [routerLink]="['events']" routerLinkActive="router-link-active">Events</a></li>
-            </ul>
-        </div>
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Inner Page - Gp Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <!-- Favicons -->
+  <link src="/assets/img/favicon.png" rel="icon">
+  <link src="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link src="/https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link src="/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link src="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link src="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link src="/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link src="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link src="/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link src="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link src="/assets/css/style.css" rel="stylesheet">
+  <script src="/assets/js/main.js"></script>
+  <!-- =======================================================
+  * Template Name: Gp - v4.3.0
+  * Template URL: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top header-inner-pages">
+    <div class="container d-flex align-items-center justify-content-lg-between">
+      <h1 class="logo me-auto me-lg-0"><a href="">USEC</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto " href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto"   (click)="moveToAbout()" routerLinkActive="router-link-active">About</a></li>
+          <li><a class="nav-link scrollto"  (click)="moveToWelcome()" routerLinkActive="router-link-active">Clips</a></li>
+          <li><a class="nav-link scrollto"  [routerLink]="['events']" routerLinkActive="router-link-active">Events</a></li>
+
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <a href="#about" class="get-started-btn scrollto">About me</a>
+
     </div>
-</nav>
+  </header><!-- End Header -->

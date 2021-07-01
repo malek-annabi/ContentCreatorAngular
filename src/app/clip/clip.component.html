@@ -1,10 +1,15 @@
-<div style="text-align:center;" id="clips">
-  <input style="width: 20%;margin-left: 70%;" [(ngModel)]="term" type="text" name="search"><i style="margin-right: 0%;" class="fas fa-search"></i>
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<div style="text-align:center;background-color: darkgrey;" id="clips">
+  <div style="margin-bottom: 5%;">
+    <br>
+  <input style="width: 20%;margin-left: 70%;border: 1px solid #f48fb1;box-shadow: 0 0 0 1px yellow;" [(ngModel)]="term" type="text" name="search"><span style="font-size: 1em; color: yellow;margin-left: 1%;"><i class="fal fa-search"></i></span>
   <div style="width:100%; content:center;" *ngFor="let clip of activeClips.slice().reverse() | filter:term">
          <div style="height: 50%;">
          <h4>{{clip.name}}</h4>
           <p class="text-black-50 mb-0">{{clip.description}}</p>
-          <iframe [src]="clip.link | asyncpipe" height="400px" width="50%" allowfullscreen="true"></iframe>
+          <iframe [src]="clip.link | asyncpipe" height="400px" width="80%" allowfullscreen="true"></iframe>
       </div>
+    </div>
+    <br>
     </div>
   </div>
