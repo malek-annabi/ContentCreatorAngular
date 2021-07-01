@@ -31,6 +31,10 @@ export class HeadComponent implements OnInit {
     this.router.navigate([''])
 
   }
+  clickEvent(event:any) {
+    // Haven't really got far
+    var targetEle = event.srcElement.attributes.class;
+  }
 
 
 }
