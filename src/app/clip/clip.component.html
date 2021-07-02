@@ -2,13 +2,17 @@
 <div style="text-align:center;background-color: darkgrey;" id="clips">
   <div style="margin-bottom: 5%;">
     <br>
-  <input style="width: 20%;margin-left: 70%;border: 1px solid #f48fb1;box-shadow: 0 0 0 1px yellow;" [(ngModel)]="term" type="text" name="search"><span style="font-size: 1em; color: yellow;margin-left: 1%;"><i class="fal fa-search"></i></span>
-  <div style="width:100%; content:center;" *ngFor="let clip of activeClips.slice().reverse() | filter:term">
+    <div style="margin-left: 70%;" class="search-box">
+      <button class="btn-search"><i class="fas fa-search"></i></button>
+      <input class="input-search" [(ngModel)]="term" type="text" name="search">
+    </div>
+
+  <div style="width:100%;" *ngFor="let clip of activeClips.slice().reverse() | filter:term">
          <div style="height: 50%;">
          <h4>{{clip.name}}</h4>
           <p class="text-black-50 mb-0">{{clip.description}}</p>
           <br>
-          <iframe  style="border: none;" [src]="clip.link | asyncpipe" height="400px" width="80%" allowfullscreen="true"></iframe>
+          <iframe  style="border: none;margin-right: 5%;" [src]="clip.link | asyncpipe" height="400px" width="73%" allowfullscreen="true"></iframe>
       </div>
     </div>
     <br>
