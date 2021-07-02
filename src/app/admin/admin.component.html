@@ -1,6 +1,6 @@
 <!-- head -->
 <head>
-  <title>DOPE_USEC ADMIN</title>
+  <title>DOPE USEC ADMIN</title>
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
   <!-- Google Fonts -->
@@ -20,11 +20,14 @@
   <ul style="margin-left: 1%;" class="list-group">
     <br>
     <br>
+    <li><a class="btn" style="background-color: lightblue;" [routerLink]="['']"><i class="fas fa-home"></i></a></li>
+    <br>
     <li><a class="btn" [ngClass]="{'active' : this.router.url === '/admin/clips'  || this.router.url === '/admin'}"
         href="admin/clips">Clips</a></li>
+        <br>
     <li><a class="btn" [ngClass]="{'active' : this.router.url === '/admin/events'}" href="
       admin/events">Events</a></li>
-    <li style="margin-top: 320%;">
+    <li style="margin-top: 300%;">
       <a class="btn btn-danger" *ngIf="authService.isLoggedIn" routerLinkActive="active" (click)="logout()">
         logout</a>
     </li>
@@ -35,14 +38,14 @@
     style="margin-left:10%;padding:1px 16px;height:1000px;">
     <section style="margin-left: 2%;" class="bg-light" id="clips">
       <h1 style="text-align: center; margin-top: 10%;">Clips Table</h1>
-      <a class="btn" style="margin-left: 90%;background-color: lightblue;" [routerLink]="['']"><i class="fas fa-home"></i></a>
       <!-- add + search -->
-      <nav class="navbar">
+      <div>
         <a style="margin-top:2%;margin-left: 2%; width: 5dp;" class="btn btn-success" (click)="openAddClip()"><i
             class="fa fa-2x fa-plus" aria-hidden="true"></i></a>
-        <input style="width: 20%;margin-left: 70%;" [(ngModel)]="term" type="text" name="search"><i style="margin-right: 0%;" class="fas fa-search"></i>
-      </nav>
-      <!-- clips table -->
+        <input style="width: 20%;margin-left: 60%;" [(ngModel)]="term" type="text" name="search"><i style="margin-left: 1%;" class="fas fa-search"></i>
+      </div>
+      <br>
+        <!-- clips table -->
       <table style="margin-bottom: 5%;" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%"
         id='clips'>
         <thead class="thead-dark">
@@ -78,48 +81,46 @@
 
 
 <!-- eventes section -->
-  <div style="margin-left:10%;padding:1px 16px;height:100%;width: 100%;" *ngIf="this.router.url === '/admin/events'" >
-    <section style="margin-left: 2%;height:100%;width: 100%;" class="bg-light" id="events">
+<div *ngIf="this.router.url === '/admin/events'"
+    style="margin-left:10%;padding:1px 16px;height:1000px;">
+    <section style="margin-left: 2%;" class="bg-light" id="events">
       <h1 style="text-align: center; margin-top: 10%;">Events Table</h1>
-      <a class="btn" style="margin-left: 90%;background-color: lightblue;" [routerLink]="['']"><i class="fas fa-home"></i></a>
-<!-- add + search -->
-      <nav class="navbar">
+      <!-- add + search -->
+      <div>
         <a style="margin-top:2%;margin-left: 2%; width: 5dp;" class="btn btn-success" (click)="openAddEvent()"><i
             class="fa fa-2x fa-plus" aria-hidden="true"></i></a>
-        <input style="width: 20%;margin-left: 70%;" [(ngModel)]="term" type="text" name="search"><i style="margin-right: 0%;" class="fas fa-search"></i>
-      </nav>
-      <!-- events table -->
+        <input style="width: 20%;margin-left: 60%;" [(ngModel)]="term" type="text" name="search"><i style="margin-left: 1%;" class="fas fa-search"></i>
+      </div>
+      <br>
+        <!-- clips table -->
       <table style="margin-bottom: 5%;" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%"
-        id='events'>
+        id='clips'>
         <thead class="thead-dark">
           <tr>
             <th class="th-sm">NAME</th>
-            <th class="th-sm">DESCRIPTION</th>
             <th class="th-sm">LINK</th>
             <th class="th-sm">TIME</th>
             <th class="th-sm">RULES</th>
-            <th class="th-sm">PHOTO</th>
             <th class="th-sm">ACTIONS</th>
           </tr>
         </thead>
         <tr *ngFor="let event of activeEvents | paginate: { itemsPerPage: 5, currentPage: p} | filter:term">
           <th>{{event.name}}</th>
-          <th>{{event.description}}</th>
-          <th style="width: 10%;">{{event.link}}</th>
+          <th>{{event.link}}</th>
           <th>{{event.time | date:'short'}}</th>
           <th>{{event.rules}}</th>
-          <th  style="max-width:10%!important;word-wrap:break-word!important;">{{event.photo}}</th>
           <th>
-            <a class="mx-2" [routerLink]="['details',event._id]" routerLinkActive="active-link"><i class="fa-2x fas fa-info-circle"></i></a>
-            <a class="mx-2" (click)="openUpdateEvent(event)"><i class="fa-2x fas fa-edit"></i></a>
-            <a class="mx-2" (click)="openRemoveEvent(event)" routerLinkActive="active"><i class="fa-2x fas fa-trash-alt"></i></a>
+            <a class="mx-2" [routerLink]="['details',event._id]" routerLinkActive="active-link"><br><i
+                class="fa-2x fas fa-info-circle"></i></a>
+            <a class="mx-2" (click)="openUpdateEvent(event)"><i class="fas fa-2x fa-edit"></i></a>
+            <a class="mx-2" (click)="openRemoveEvent(event)" routerLinkActive="active"><i class="fas fa-2x fa-trash-alt"></i></a>
           </th>
         </tr>
       </table>
-      <!-- pagination elemet -->
-      <div style="align-items: center;margin-left: 45%;">
+      <!-- pagination element -->
+      <div style="align-items: center;margin-left: 35%;">
         <pagination-controls (pageChange)="p = $event"></pagination-controls>
       </div>
     </section>
   </div>
-</body>
+    </body>

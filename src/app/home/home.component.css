@@ -1,0 +1,12 @@
+@media screen and (max-width: 600px) {
+   .change {
+    float: none;
+    margin-right:0;
+    min-width: 300px;
+    min-height:300px;
+  }
+}
+.two{
+  min-width: 400px;
+  min-height:300px;
+}

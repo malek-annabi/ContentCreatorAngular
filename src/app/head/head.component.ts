@@ -14,13 +14,24 @@ export class HeadComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  moveToTop()
+  {
+    location.href = "#top-page"
+    this.router.navigate([''])
+  }
 
-
-  moveToWelcome()
+  moveToClips()
   {
 
     location.href = "#clips"
     this.router.navigate([''])
+
+  }
+  moveToEvents()
+  {
+
+    location.href = "events/#events"
+    this.router.navigate(['events'])
 
   }
 

@@ -1,5 +1,33 @@
-<div class="auth-wrapper">
-  <form class="form-signin" [formGroup]="signinForm" >
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <h3 class="h3 mb-3 font-weight-normal text-center">Please sign in</h3>
+    </div>
+
+    <!-- Login Form -->
+    <form [formGroup]="signinForm">
+      <input type="text" id="username" formControlName="username" class="fadeIn second" name="username" placeholder="username">
+      <input type="password" id="password" class="fadeIn third" formControlName="password" name="password" placeholder="password">
+      <input type="submit" class="fadeIn fourth"  (click)="loginUser()" value="Log In">
+    </form>
+  </div>
+</div>
+
+
+
+
+<!-- <link src="/assets/css/style.css" rel="stylesheet">
+<div style="width: 100%;height: 100%;" >
+<div class="auth-wrapper" style="width: 50%;height: 50%;">
+  <form class="align-items-center justify-content-center form-signin" [formGroup]="signinForm" style="margin-bottom: 30%;">
       <h3 class="h3 mb-3 font-weight-normal text-center">Please sign in</h3>
       <div class="form-group">
           <label>Username</label>
@@ -12,3 +40,4 @@
       <button type="submit" class="btn btn-block btn-primary" (click)="loginUser()">Sign in</button>
   </form>
 </div>
+</div> -->

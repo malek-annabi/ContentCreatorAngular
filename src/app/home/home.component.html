@@ -3,7 +3,7 @@
 <app-head></app-head>
 <div style="background-color: darkgrey;">
 <!-- ======= Hero Section ======= -->
-<section id="hero" class="d-flex align-items-center justify-content-center">
+<section id="top-page" class="d-flex align-items-center justify-content-center">
   <div id="about" class="container" data-aos="fade-up">
     <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
       <div class="col-xl-6 col-lg-8">
@@ -15,7 +15,22 @@
 
 
 <main style="margin-top: 10%;" class="align-items-center justify-content-center" id="main">
-  <div>
+  <div class="container ">
+    <div class="row">
+      <div class="col"><iframe class="change" [src]="'https://player.twitch.tv/?channel=dope_usec&parent=malek-annabi.github.io' | asyncpipe" frameborder="0" allowfullscreen="true" scrolling="no" height="500px" width="100%"></iframe></div>
+      <div class="two"> <iframe style="margin-left: 10%;" [src]="'https://www.twitch.tv/embed/dope_usec/chat?parent=malek-annabi.github.io'| asyncpipe"
+        height="100%" width="60%" ></iframe></div>
+    </div>
+    <br>
+      <div class="row">
+      <div class="col change"><iframe class="change" src="https://discord.com/widget?id=732955144618246247&theme=dark" height="500px" width="100%" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe></div>
+      <div class="two">
+        <script async type="text/javascript" src="https://collectcdn.com/embed.js"></script>
+        <iframe style="margin-left: 10%;background: none; background-color: black;"  src="https://links.collect.chat/60dc8033abdbe746a4244c1c"   height="100%" width="60%" frameBorder="0"></iframe>
+      </div>
+    </div>
+  </div>
+  <!-- <div>
   <table style="width: 80%; height: 30%;margin-bottom: 10%;margin-left: 5%;">
     <tr>
       <th>
@@ -42,7 +57,7 @@
 </th>
 </tr>
 </table>
-</div>
+</div> -->
 </main><!-- End #main -->
 
         <app-clip></app-clip>

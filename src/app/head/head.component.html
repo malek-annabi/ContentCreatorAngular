@@ -45,10 +45,10 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto " href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto " (click)="moveToTop()">Home</a></li>
           <li><a class="nav-link scrollto"   (click)="moveToAbout()" routerLinkActive="router-link-active">About</a></li>
-          <li><a class="nav-link scrollto"  (click)="moveToWelcome()" routerLinkActive="router-link-active">Clips</a></li>
-          <li><a class="nav-link scrollto"  [routerLink]="['events']" routerLinkActive="router-link-active">Events</a></li>
+          <li><a class="nav-link scrollto"  (click)="moveToClips()" routerLinkActive="router-link-active">Clips</a></li>
+          <li><a class="nav-link scrollto"  (click)="moveToEvents()" routerLinkActive="router-link-active">Events</a></li>
         </ul>
 
         <div class="row mobile-nav-toggle">
@@ -56,9 +56,9 @@
             <div ngbDropdown class="d-inline-block">
               <button class="btn" id="dropdownBasic1" ngbDropdownToggle><i class="bi bi-list mobile-nav-toggle"></i></button>
               <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                <li><a class="nav-link scrollto" style="color: black;" href="#hero">Home</a></li>
+                <li><a class="nav-link scrollto" style="color: black;" (click)="moveToTop()">Home</a></li>
                 <li><a class="nav-link scrollto"  style="color: black;" (click)="moveToAbout()" routerLinkActive="router-link-active">About</a></li>
-                <li><a class="nav-link scrollto" style="color: black;" (click)="moveToWelcome()" routerLinkActive="router-link-active">Clips</a></li>
+                <li><a class="nav-link scrollto" style="color: black;" (click)="moveToClips()" routerLinkActive="router-link-active">Clips</a></li>
                 <li><a class="nav-link scrollto"  style="color: black;"[routerLink]="['events']" routerLinkActive="router-link-active">Events</a></li>
               </div>
             </div>
