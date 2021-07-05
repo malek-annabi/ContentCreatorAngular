@@ -61,7 +61,7 @@
           <th>{{clip.description}}</th>
           <th style="width: 20%;">{{clip.link}}</th>
           <th>
-            <a class="mx-2" [routerLink]="['details/',clip._id]" routerLinkActive="active-link"><br><i
+            <a class="mx-2" [routerLink]="['details',clip._id]" routerLinkActive="active-link"><br><i
                 class="fa-2x fas fa-info-circle"></i></a>
             <a class="mx-2" (click)="openUpdateClip(clip)"><i class="fas fa-2x fa-edit"></i></a>
             <a class="mx-2" (click)="openRemoveClip(clip)" routerLinkActive="active"><i
