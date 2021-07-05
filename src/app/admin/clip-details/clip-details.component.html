@@ -31,9 +31,12 @@
                 <br>
             </div>
             <div class="col-md-6">
+              <h4>Descripton :</h4>
                 <p>
                     {{clip.description}}
                 </p>
+                <h4 style="margin-top: 2%;">Created At :</h4> <p>{{clip.createdAt | date:'short'}}</p>
+                <h4> Update :</h4> <p>{{clip.updatedAt | date:'short'}}</p>
             </div>
         </div>
         <br>
