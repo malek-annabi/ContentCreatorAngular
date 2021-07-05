@@ -1,7 +1,4 @@
-import { SimplePlaceholderMapper } from '@angular/compiler/src/i18n/serializers/serializer';
 import { Component, OnInit } from '@angular/core';
-import { timer } from 'rxjs';
-import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-footer',

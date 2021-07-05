@@ -1,5 +1,5 @@
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { ActivatedRoute, Router } from '@angular/router';
+import {  Router } from '@angular/router';
 import { EventService } from './../../services/event.service';
 import { Event } from './../../models/event';
 import { Component, OnInit } from '@angular/core';

@@ -47,13 +47,7 @@ export class AdminComponent implements OnInit {
   }
   ngOnInit():void{
     this.titleService.setTitle('DOPE_USEC ADMIN');
-
-
-    console.log(this.router.url)
-
     this.eventService.getEvents().subscribe((result)=>{
-
-      console.log(result)
       this.events=result
       this.events.forEach((element: any) => {
         if (element.status=='active')
@@ -61,7 +55,6 @@ export class AdminComponent implements OnInit {
       });
     })
     this.clip.getClips().subscribe((result)=>{
-      console.log(result)
       this.clips=result
       this.clips.forEach((element: any) => {
         if (element.status=='active')
