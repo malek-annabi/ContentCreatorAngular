@@ -21,11 +21,26 @@
               <a href="https://www.youtube.com/channel/UC-d4NYIPhL5wsAxIiYBcfmA" class="youtube"><i class="fa fa-youtube"></i></a>
             </div>
           </div>
+
         </div>
-        </div>
+        <a (click)="toggle()" style="margin-left: 90%;" class="mx-8 fixed-bottom"><i class="fas far fa-3x fa-robot"></i></a>
         </div>
 
+        <div >
+          <div style="margin-left: 50%;" class="fixed-bottom fade-in" *ngIf="show">
+            <button style="margin-left:68%;background: yellow;" type="button" class="btn btn-outline-dark" (click)="close()">X</button>
+            <br>
+            <br>
+            <div style="height: 400px;width: 800px;margin-left: 2%;">
+              <script async type="text/javascript" src="https://collectcdn.com/embed.js"></script>
+              <iframe class="breath" style="background: none;"  src="https://links.collect.chat/60dc8033abdbe746a4244c1c"   height="100%" width="60%" frameBorder="0"></iframe>
+            </div>
+            <br>
+            </div>
+        </div>
+        </div>
   </div>
+
 
   <div class="container">
     <div class="copyright">

@@ -1,4 +1,7 @@
+import { SimplePlaceholderMapper } from '@angular/compiler/src/i18n/serializers/serializer';
 import { Component, OnInit } from '@angular/core';
+import { timer } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-footer',
@@ -6,9 +9,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
+  public show=false;
+  public buttonName = 'Show';
 
   constructor() { }
+  ngOnInit(){
+    setTimeout(() =>
+    {
+        this.show=true;
+    },
+    3000);
+    }
 
-  ngOnInit(): void {
+
+
+  toggle() {
+    this.show = !this.show;
+
+    // CHANGE THE NAME OF THE BUTTON.
+    if(this.show)
+      this.buttonName = "Hide";
+    else
+      this.buttonName = "Show";
+  }
+  close(){
+    this.buttonName = "Hide";
+    this.show = !this.show;
   }
 }

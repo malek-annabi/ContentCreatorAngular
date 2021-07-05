@@ -129,20 +129,3 @@
 .links li {
   width: 100%;
 }
-.breath
-{
-    background-color: darkgray;
-
-    animation: 1s infinite alternate ease-out breathing-color--dark;
-}
-
-@keyframes breathing-color--dark {
-    from
-    {
-        background-color: darkgray;
-    }
-    to
-    {
-        background-color: hsl(0, 0%, 10%);
-    }
-}

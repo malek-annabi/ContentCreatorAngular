@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 <app-head></app-head>
 <div id="events" style="align-items: center;" *ngFor="let event of activeEvents.slice().reverse()">
 <section class="event-card">
@@ -26,4 +25,8 @@
 </section>
   <iframe *ngIf="event.link" class="responsive-iframe" width="60%" height="40%" [src]="event.link | asyncpipe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
+
+<br>
+<br>
+
 <app-footer></app-footer>

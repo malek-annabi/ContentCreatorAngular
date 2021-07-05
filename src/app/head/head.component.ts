@@ -1,7 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ChatbotComponent } from '../chatbot/chatbot.component';
 
 @Component({
   selector: 'app-head',
@@ -48,10 +47,4 @@ export class HeadComponent implements OnInit {
     // Haven't really got far
     var targetEle = event.srcElement.attributes.class;
   }
-  openChatbot() {
-    const modalRef = this.modalService.open(ChatbotComponent);
-    modalRef.componentInstance.name = 'chatbot';
-  }
-
-
 }
