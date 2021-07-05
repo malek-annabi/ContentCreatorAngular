@@ -1,5 +1,3 @@
-import { Clip } from './../models/clip';
-import { ClipService } from './../services/clip.service';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -13,4 +11,5 @@ export class HomeComponent implements OnInit {
   ngOnInit():void{
 
   }
+
 }

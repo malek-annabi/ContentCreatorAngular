@@ -1,5 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ChatbotComponent } from '../chatbot/chatbot.component';
 
 @Component({
   selector: 'app-head',
@@ -9,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class HeadComponent implements OnInit {
   term='';
 
-  constructor(public router:Router) { }
+  constructor(public router:Router,public modalService:NgbModal) { }
 
   ngOnInit(): void {
   }
@@ -45,6 +47,10 @@ export class HeadComponent implements OnInit {
   clickEvent(event:any) {
     // Haven't really got far
     var targetEle = event.srcElement.attributes.class;
+  }
+  openChatbot() {
+    const modalRef = this.modalService.open(ChatbotComponent);
+    modalRef.componentInstance.name = 'chatbot';
   }
 
 

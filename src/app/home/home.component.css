@@ -10,3 +10,21 @@
   min-width: 400px;
   min-height:300px;
 }
+
+.breath
+{
+    background-color: black;
+
+    animation: 1s infinite alternate ease-out breathing-color--dark;
+}
+
+@keyframes breathing-color--dark {
+    from
+    {
+        background-color: black;
+    }
+    to
+    {
+        background-color: hsl(0, 0%, 10%);
+    }
+}

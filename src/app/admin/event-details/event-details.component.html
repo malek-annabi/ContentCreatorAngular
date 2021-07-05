@@ -4,6 +4,7 @@
   <br>
     <li><a class="btn" href="admin/clips">Clips</a></li>
     <li><a class="btn" href="admin/events">Events</a></li>
+    <li><a  class="mx-2 btn btn-success"  (click)='back()'>Back</a></li>
     <li style="margin-top: 320%;">
       <a  class="btn btn-danger" *ngIf="authService.isLoggedIn" routerLinkActive="active" (click)="logout()">
         logout</a>
@@ -21,6 +22,11 @@
     <div>
       <iframe class="responsive-iframe" width="1000" height="720" [src]="event.link | asyncpipe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <br>
+      <h3>description :</h3>
+        <p style="text-align: left;">
+          {{event.description}}
+        </p>
+        <br>
       <img width="1000" height="720" [src]="event.photo | asyncpipe">
       <br>
       <h2 style="margin-top: 2%;">Time : {{event.time | date:'short'}}</h2>
@@ -28,17 +34,12 @@
       <h4>last Update : {{event.updatedAt | date:'short'}}</h4>
     </div>
       <div style="text-align: left;margin-top: 2%;" class="col-md-6">
-        <h3>description :</h3>
-        <p style="text-align: left;">
-          {{event.description}}
-        </p>
         <br>
         <h3 style="text-align: left;" >Rules :</h3>
         <p style="text-align: left;">
           {{event.rules}}
         </p>
         </div>
-        <a  class="mx-2 btn btn-success"  (click)='back()'>Back</a>
         <br>
         <br>
     </section>

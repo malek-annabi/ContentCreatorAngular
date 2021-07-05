@@ -29,7 +29,7 @@ body{
   transition: all .5s ease-in-out;
   background-color: yellow;
   padding-right: 40px;
-  color:#fff;
+  color:#000;
 }
 .input-search::placeholder{
   color:rgba(255,255,255,.5);
@@ -48,7 +48,7 @@ body{
   border-radius: 50%;
   position: absolute;
   right: 0px;
-  color:#ffffff ;
+  color:#000 ;
   background-color:transparent;
   pointer-events: painted;
 }
@@ -120,4 +120,21 @@ body{
     height: 300px;
     opacity: 0;
   }
+}
+.breath
+{
+    background-color: black;
+
+    animation: 1s infinite alternate ease-out breathing-color--dark;
+}
+
+@keyframes breathing-color--dark {
+    from
+    {
+        background-color: darkgray;
+    }
+    to
+    {
+        background-color: hsl(0, 0%, 10%);
+    }
 }

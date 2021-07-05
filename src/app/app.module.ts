@@ -28,6 +28,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import { ReversePipe } from './reverse.pipe';
+import { ChatbotComponent } from './chatbot/chatbot.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { ReversePipe } from './reverse.pipe';
     ClipDetailsComponent,
     EventDetailsComponent,
     AsyncpipePipe,
-    ReversePipe
+    ReversePipe,
+    ChatbotComponent
   ],
   imports: [
     NgxPaginationModule,

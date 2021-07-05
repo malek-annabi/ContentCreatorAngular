@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-<div style="text-align:center;background-color: darkgrey;" id="clips">
+<div style="text-align:center;" class="breath" id="clips">
   <div style="margin-bottom: 5%;">
     <br>
     <div style="margin-left: 10%;" class="search-box">
@@ -10,7 +10,7 @@
   <div style="width:100%;" *ngFor="let clip of activeClips.slice().reverse() | filter:term">
          <div style="height: 50%;">
          <h4>{{clip.name}}</h4>
-          <p class="text-black-50 mb-0">{{clip.description}}</p>
+          <p class="mb-0">{{clip.description}}</p>
           <br>
           <iframe  style="border: none;margin-right: 5%;" [src]="clip.link | asyncpipe" height="400px" width="73%" allowfullscreen="true"></iframe>
       </div>
