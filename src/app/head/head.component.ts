@@ -55,7 +55,7 @@ export class HeadComponent implements OnInit {
   }
   loadScript(){
     const dynamicScript=[
-      '/assets/js/search.js'
+      './assets/js/search.js'
     ];
     for(let i =0;i<dynamicScript.length;i++){
       const node = document.createElement('script');
