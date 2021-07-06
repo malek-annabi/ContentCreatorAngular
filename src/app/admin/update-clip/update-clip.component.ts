@@ -41,11 +41,11 @@ export class UpdateClipComponent implements OnInit {
        return;
     }
     // sending new clip infos
-    console.log(this.updateClip.value)
 
 
     this.clipService.updateClip(_id,this.updateClip.value).subscribe((data:any) => {
       this.clip = data;
+      window.location.reload();
 
       //server errors
       }, error => console.log(error));
