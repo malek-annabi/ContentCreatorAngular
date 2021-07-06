@@ -30,7 +30,9 @@ export class FooterComponent implements OnInit {
       this.buttonName = "Show";
   }
   close(){
+    if(!this.show){
     this.buttonName = "Hide";
     this.show = !this.show;
+  }
   }
 }
