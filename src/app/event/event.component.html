@@ -1,5 +1,6 @@
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 <app-head></app-head>
-<div id="events" style="align-items: center;" *ngFor="let event of activeEvents.slice().reverse()">
+<div id="events" style="align-items: center;" *ngFor="let event of activeEvents.slice().reverse() | filter:term">
 <section class="event-card">
   <header class="header">
     <h1 class="heading">{{event.name}}</h1>
