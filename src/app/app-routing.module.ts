@@ -20,6 +20,7 @@ const routes: Routes = [
   {path:'admin',component:AdminComponent ,canActivate: [AuthGuard]},
   { path: 'admin/clips', component:AdminComponent,canActivate: [AuthGuard]},
   { path: 'admin/events', component:AdminComponent,canActivate: [AuthGuard]},
+  {path:'clips/details/:_id',canActivate: [AuthGuard],component:ClipDetailsComponent},
   {path:'admin/clips/details/:_id',canActivate: [AuthGuard],component:ClipDetailsComponent},
   {path:'admin/events/details/:_id',canActivate: [AuthGuard],component:EventDetailsComponent}
 
