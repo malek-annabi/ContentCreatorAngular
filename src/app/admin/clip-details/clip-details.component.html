@@ -20,23 +20,26 @@
   <div class="col-md-12">
   <section class="panel">
         <div class="panel-body">
+          <h2 class="pro-d-title">
+            {{clip.name}}
+          </h2>
             <div class="col-md-6">
                 <div class="pro-img-details">
-                  <h2 class="pro-d-title">
-                    {{clip.name}}
-                  </h2>
+
                   <br>
                   <iframe style="margin-left: 32%;margin-top: 10%; border: none;" [src]="clip.link | asyncpipe" height="400" width="700" allowfullscreen="true"></iframe>
                 </div>
                 <br>
             </div>
+            <div style="margin-left: 20%;" class="d-flex">
+            <p>Created At :{{clip.createdAt | date:'short'}}</p>
+            <p style="margin-left: 10%;">Updated At :{{clip.updatedAt | date:'short'}}</p>
+          </div>
             <div class="col-md-6">
               <h4>Descriptoion :</h4>
                 <p>
                     {{clip.description}}
                 </p>
-                <h4 style="margin-top: 2%;">Created At :</h4> <p>{{clip.createdAt | date:'short'}}</p>
-                <h4> Update :</h4> <p>{{clip.updatedAt | date:'short'}}</p>
             </div>
         </div>
         <br>

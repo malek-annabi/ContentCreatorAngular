@@ -28,3 +28,22 @@
         background-color: hsl(0, 0%, 10%);
     }
 }
+@media screen and (max-width: 600px) {
+  * {
+    width: 100%;
+    height: auto; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+  #twitchlive{
+    width: 280px;
+    height: auto;
+  }
+  #twitchchat{
+    width: auto;
+    height: auto;
+  }
+  #discord{
+    width: 280px;
+    height: auto;
+  }
+
+}

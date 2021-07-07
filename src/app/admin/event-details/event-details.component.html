@@ -15,13 +15,18 @@
 <div style="margin-left: 20%;margin-top: 3%;" class="container bootdey">
   <div class="col-md-12">
   <section class="panel" >
-    <h2 class="pro-d-title">
+    <h2 style="margin-left: 30%;" class="pro-d-title">
       {{event.name}}
     </h2>
     <br>
     <div>
       <iframe class="responsive-iframe" width="1000" height="720" [src]="event.link | asyncpipe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <br>
+      <br>
+      <div style="margin-left: 10%;" class="d-flex">
+        <p>Created At :{{event.createdAt | date:'short'}}</p>
+        <p style="margin-left: 10%;">Updated At :{{event.updatedAt | date:'short'}}</p>
+      </div>
       <h3>description :</h3>
         <p style="text-align: left;">
           {{event.description}}
@@ -30,8 +35,6 @@
       <img width="1000" height="720" [src]="event.photo | asyncpipe">
       <br>
       <h2 style="margin-top: 2%;">Time : {{event.time | date:'short'}}</h2>
-      <h4 style="margin-top: 2%;">Created At : {{event.createdAt | date:'short'}}</h4>
-      <h4>last Update : {{event.updatedAt | date:'short'}}</h4>
     </div>
       <div style="text-align: left;margin-top: 2%;" class="col-md-6">
         <br>

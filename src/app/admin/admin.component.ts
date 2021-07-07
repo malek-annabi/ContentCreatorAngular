@@ -46,6 +46,7 @@ export class AdminComponent implements OnInit {
     this.authService.doLogout()
   }
   ngOnInit():void{
+    this.loadScript();
     this.titleService.setTitle('DOPE_USEC ADMIN');
     this.eventService.getEvents().subscribe((result)=>{
       this.events=result
@@ -103,5 +104,18 @@ export class AdminComponent implements OnInit {
   sort(key:any){
     this.key = key;
     this.reverse = !this.reverse;
+  }
+  loadScript(){
+    const dynamicScript=[
+      './assets/js/admin.js'
+    ];
+    for(let i =0;i<dynamicScript.length;i++){
+      const node = document.createElement('script');
+      node.src=dynamicScript[i];
+      node.type='text/javascript';
+      node.async=false;
+      node.charset='utf-8';
+      document.getElementsByTagName('head')[0].appendChild(node);
+    }
   }
 }
