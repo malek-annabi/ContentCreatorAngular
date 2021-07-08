@@ -57,6 +57,9 @@ div.content {
     text-align: center;
     float: none;
   }
+  .input{
+    width: 200px;
+  }
 }
 *{
   font-weight: bold;
