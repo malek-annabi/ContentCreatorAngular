@@ -27,21 +27,51 @@
           logout</a>
   </div>
 
-  <!-- clips section -->
   <div class="content">
+  <div *ngIf="this.router.url === '/admin/clips' || this.router.url === '/admin'" >
+    <h1 style="text-align: center; margin-top: 10%;">Clips</h1>
+    <div>
+      <a style="margin-top:2%;margin-left: 2%; width: 5dp;" class="btn btn-success" (click)="openAddClip()"><i
+          class="fa fa-2x fa-plus" aria-hidden="true"></i></a>
+      <input style="width: 20%;margin-left: 60%;" [(ngModel)]="term" type="text" name="search"><i style="margin-left: 1%;" class="fas fa-search"></i>
+    </div>
+    <table  class="table table-bordered table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let clip of activeClips | paginate: { itemsPerPage: 5, currentPage: p } | filter:term">
+          <td>{{clip.name}}</td>
+          <td>{{clip.description}}</td>
+          <td>
+            <a class="mx-2" [routerLink]="['clips/details',clip._id]" routerLinkActive="active-link"><br><i
+                class="fa-2x fas fa-info-circle"></i></a>
+            <a class="mx-2" (click)="openUpdateClip(clip)"><i class="fas fa-2x fa-edit"></i></a>
+            <a class="mx-2" (click)="openRemoveClip(clip)" routerLinkActive="active"><i
+                class="fas fa-2x fa-trash-alt"></i></a>
+          </td>
+        </tr>
 
-  <div *ngIf="this.router.url === '/admin/clips' || this.router.url === '/admin'"
+      </tbody>
+    </table>
+    <div style="align-items: center;margin-left: 35%;">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+  <!-- <div *ngIf="this.router.url === '/admin/clips' || this.router.url === '/admin'"
     style="padding:1px;height:auto;">
     <section style="margin-left: 2%;" class="bg-light" id="clips">
       <h1 style="text-align: center; margin-top: 10%;">Clips</h1>
-      <!-- add + search -->
       <div>
         <a style="margin-top:2%;margin-left: 2%; width: 5dp;" class="btn btn-success" (click)="openAddClip()"><i
             class="fa fa-2x fa-plus" aria-hidden="true"></i></a>
         <input style="width: 20%;margin-left: 60%;" [(ngModel)]="term" type="text" name="search"><i style="margin-left: 1%;" class="fas fa-search"></i>
       </div>
       <br>
-        <!-- clips table -->
       <table style="margin-bottom: 5%;width: 100%;" class="table table-striped table-bordered table-sm" cellspacing="0"
         id='clips'>
         <thead class="thead-dark">
@@ -56,7 +86,7 @@
           <th >{{clip.name}}</th>
           <th >{{clip.description}}</th>
           <th >{{clip.link}}</th>
-          <th >
+          <th>
             <a class="mx-2" [routerLink]="['details',clip._id]" routerLinkActive="active-link"><br><i
                 class="fa-2x fas fa-info-circle"></i></a>
             <a class="mx-2" (click)="openUpdateClip(clip)"><i class="fas fa-2x fa-edit"></i></a>
@@ -65,31 +95,54 @@
           </th>
         </tr>
       </table>
-      <!-- pagination element -->
       <div style="align-items: center;margin-left: 35%;">
         <pagination-controls (pageChange)="p = $event"></pagination-controls>
       </div>
     </section>
-  </div>
+  </div> -->
 
 
 
 
 
-<!-- eventes section -->
-<div *ngIf="this.router.url === '/admin/events'"
-    style="margin-left:10%;padding:1px 16px;height:1000px;">
-    <section style="margin-left: 2%;" class="bg-light" id="events">
+<div *ngIf="this.router.url === '/admin/events'">
       <h1 style="text-align: center; margin-top: 10%;">Events</h1>
-      <!-- add + search -->
       <div>
         <a style="margin-top:2%;margin-left: 2%; width: 5dp;" class="btn btn-success" (click)="openAddEvent()"><i
             class="fa fa-2x fa-plus" aria-hidden="true"></i></a>
         <input style="width: 20%;margin-left: 60%;" [(ngModel)]="term" type="text" name="search"><i style="margin-left: 1%;" class="fas fa-search"></i>
       </div>
-      <br>
+      <table class="table table-hover table-dark">
+        <thead>
+          <tr>
+            <th scope="col">NAME</th>
+            <th scope="col">TIME</th>
+            <th scope="col">RULES</th>
+            <th scope="col">ACTIONS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let event of activeEvents | paginate: { itemsPerPage: 5, currentPage: p} | filter:term">
+            <td>{{event.name}}</td>
+            <td>{{event.time | date:'short'}}</td>
+            <td>{{event.rules}}</td>
+            <td>
+              <a class="mx-2" [routerLink]="['details',event._id]" routerLinkActive="active-link"><br><i
+                  class="fa-2x fas fa-info-circle"></i></a>
+              <a class="mx-2" (click)="openUpdateEvent(event)"><i class="fas fa-2x fa-edit"></i></a>
+              <a class="mx-2" (click)="openRemoveEvent(event)" routerLinkActive="active"><i class="fas fa-2x fa-trash-alt"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="align-items: center;margin-left: 35%;">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+</div>
+</div>
+</body>
         <!-- clips table -->
-      <table style="margin-bottom: 5%;" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%"
+      <!-- <table style="margin-bottom: 5%;" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%"
         id='clips'>
         <thead class="thead-dark">
           <tr>
@@ -113,11 +166,7 @@
           </th>
         </tr>
       </table>
-      <!-- pagination element -->
       <div style="align-items: center;margin-left: 35%;">
         <pagination-controls (pageChange)="p = $event"></pagination-controls>
       </div>
-    </section>
-  </div>
-</div>
-    </body>
+    </section> -->

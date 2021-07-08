@@ -21,7 +21,7 @@ export class EventDetailsComponent implements OnInit {
     public authService:AuthService) { }
 
   ngOnInit(): void {
-
+    this.loadScript();
     //getting route parameters
     this.route.params.subscribe(params => {
       this._id = params['_id'];
@@ -41,5 +41,18 @@ export class EventDetailsComponent implements OnInit {
     //back to admin pannel
     back(){
       this.router.navigate(['admin/events'])
+    }
+    loadScript(){
+      const dynamicScript=[
+        './assets/js/admin.js'
+      ];
+      for(let i =0;i<dynamicScript.length;i++){
+        const node = document.createElement('script');
+        node.src=dynamicScript[i];
+        node.type='text/javascript';
+        node.async=false;
+        node.charset='utf-8';
+        document.getElementsByTagName('head')[0].appendChild(node);
+      }
     }
 }

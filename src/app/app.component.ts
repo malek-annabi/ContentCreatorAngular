@@ -9,7 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'DOPE_USEC';
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService) {
+  }
 
   logout() {
     this.authService.doLogout()

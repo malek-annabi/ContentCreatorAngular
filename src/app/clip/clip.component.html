@@ -9,8 +9,8 @@
     <br>
   <div   style="width:100%;text-align: center;" *ngFor="let clip of activeClips.slice().reverse() | filter:term">
          <div style="height: 50%;">
-         <h4>{{clip.name}}</h4>
-          <p>{{clip.description}}</p>
+         <h4 style="color: #ffc451;">{{clip.name }}</h4>
+          <p style="color: #ffc451;">{{clip.description}}</p>
           <br>
           <iframe  style="border: none;margin-right: 8%;" [src]="clip.link | asyncpipe" height="400px" width="60%" allowfullscreen="true"></iframe>
       </div>

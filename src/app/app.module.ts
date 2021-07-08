@@ -63,8 +63,6 @@ import { ReversePipe } from './reverse.pipe';
     NotifierModule,
     Ng2SearchPipeModule,
     Ng2OrderModule,
-
-
   ],
   providers: [
     {

@@ -1,32 +1,36 @@
 <!-- header-->
-<script src= "https://player.twitch.tv/js/embed/v1.js"></script>
+<script src="https://player.twitch.tv/js/embed/v1.js"></script>
 <app-head></app-head>
-<div class="breath">
-<!-- ======= Hero Section ======= -->
-<section id="top-page" class="d-flex align-items-center justify-content-center">
-  <div id="about" class="container" >
-    <div class="row justify-content-center">
+<div style="background-color:grey;">
+  <!-- ======= Hero Section ======= -->
+  <section id="top-page" class="d-flex align-items-center justify-content-center">
+    <div id="about" class="container">
+      <div class="row justify-content-center">
         <h1 class="mx-auto my-0 text-uppercase">USEC MICROWAVE</h1>
+      </div>
     </div>
-    </div>
-</section><!-- End Hero -->
+  </section><!-- End Hero -->
 
 
-<main>
   <br>
-  <div class="container">
-    <div style="width: 100%;"  class="row">
-      <div id="twitchlive" class="change col"><iframe [src]="'https://player.twitch.tv/?channel=dope_usec&parent=malek-annabi.github.io' | asyncpipe" frameborder="0" allowfullscreen="true" scrolling="no" height="500px" width="100%"></iframe></div>
-      <div id="twitchchat" class="two col"> <iframe [src]="'https://www.twitch.tv/embed/dope_usec/chat?parent=malek-annabi.github.io'| asyncpipe" height="100%" width="60%" ></iframe></div>
+  <div style="width:100%;text-align: center;" class="container">
+    <div class="row">
+      <div id="twitchlive" class="change col"><iframe
+          [src]="'https://player.twitch.tv/?channel=dope_usec&parent=malek-annabi.github.io' | asyncpipe"
+          frameborder="0" allowfullscreen="true" scrolling="no" height="500px" width="100%"></iframe></div>
+      <div id="twitchchat" class="two col"><iframe
+          [src]="'https://www.twitch.tv/embed/dope_usec/chat?parent=malek-annabi.github.io'| asyncpipe" height="100%"
+          width="60%"></iframe></div>
     </div>
     <br>
-      <div class="row">
-      <div id="discord" class="col"><iframe class="change" src="https://discord.com/widget?id=732955144618246247&theme=dark" height="400px" width="80%" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe></div>
-    </div>
+
+      <div  id="discord" class="col"><iframe class="change"
+          src="https://discord.com/widget?id=732955144618246247&theme=dark" height="400px" width="80%"
+          allowtransparency="true" frameborder="0"
+          sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe></div>
   </div>
-</main><!-- End #main -->
-        <app-clip></app-clip>
-        <br>
-      </div>
-        <!-- footer-->
-        <app-footer></app-footer>
+  <app-clip></app-clip>
+  <br>
+</div>
+<!-- footer-->
+<app-footer></app-footer>

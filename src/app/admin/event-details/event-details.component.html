@@ -1,18 +1,14 @@
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 <!-- vertical nav -->
-<ul style="margin-left: 1%;" class="list-group">
-  <br>
-  <br>
-    <li><a class="btn" href="admin/clips">Clips</a></li>
-    <li><a class="btn" href="admin/events">Events</a></li>
-    <li><a  class="mx-2 btn btn-success"  (click)='back()'>Back</a></li>
-    <li style="margin-top: 320%;">
-      <a  class="btn btn-danger" *ngIf="authService.isLoggedIn" routerLinkActive="active" (click)="logout()">
-        logout</a>
-    </li>
-</ul>
-
+<div class="sidebar" id="sidebar">
+  <a class="btn" style="background-color: lightblue;" [routerLink]="['']"><i class="fas fa-home"></i></a>
+  <a class="btn"  href="admin/clips">Clips</a>
+      <a class="btn"  href="admin/events">Events</a>
+      <a  class="btn btn-success"  (click)='back()'>Back</a>
+      <a id="logout" class="btn btn-danger" *ngIf="authService.isLoggedIn" routerLinkActive="active" (click)="logout()">logout</a>
+</div>
 <!-- event details -->
-<div style="margin-left: 20%;margin-top: 3%;" class="container bootdey">
+<div style="margin-top: 3%;" class="container bootdey">
   <div class="col-md-12">
   <section class="panel" >
     <h2 style="margin-left: 30%;" class="pro-d-title">
@@ -32,7 +28,7 @@
           {{event.description}}
         </p>
         <br>
-      <img width="1000" height="720" [src]="event.photo | asyncpipe">
+      <img class="eventimg" width="1000" height="720" [src]="event.photo | asyncpipe">
       <br>
       <h2 style="margin-top: 2%;">Time : {{event.time | date:'short'}}</h2>
     </div>

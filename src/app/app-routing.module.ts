@@ -19,12 +19,10 @@ const routes: Routes = [
   {path:'admin/login',component:LoginComponent},
   {path:'admin',component:AdminComponent ,canActivate: [AuthGuard]},
   { path: 'admin/clips', component:AdminComponent,canActivate: [AuthGuard]},
+  { path: 'admin/clips/clips/details/:_id', component:ClipDetailsComponent,canActivate: [AuthGuard]},
   { path: 'admin/events', component:AdminComponent,canActivate: [AuthGuard]},
-  {path:'clips/details/:_id',canActivate: [AuthGuard],component:ClipDetailsComponent},
   {path:'admin/clips/details/:_id',canActivate: [AuthGuard],component:ClipDetailsComponent},
   {path:'admin/events/details/:_id',canActivate: [AuthGuard],component:EventDetailsComponent}
-
-
 ];
 
 @NgModule({
