@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <footer id="footer">
-  <div style="margin-right: 10%;" >
-
-</div>
+  <div style="margin-left: 80%;" class="fixed-bottom">
+    <a (click)="toggle()" ><img id="boticon" width="30%" height="30%" src="./assets/img/bot.png"></a>
+  </div>
   <div class="footer-top">
     <div class="container">
       <div class="row">
@@ -22,18 +22,11 @@
             </div>
           </div>
         </div>
-        <div>
-        <a (click)="toggle()"  style="margin-left: 90%;" class="mx-8 fixed-bottom hide"><img id="boticon" width="60%" height="60%" src="./assets/img/bot.png"></a>
       </div>
-
-      </div>
-
         <div>
-          <div style="margin-left: 20%;" class="fixed-top fade-in" *ngIf="show">
-            <div style="height: 300px;width: 100%;">
+            <div class="fixed-top fade-in" *ngIf="show" style="height: 300px;width: 80%;margin-left: 10%;">
               <script async type="text/javascript" src="https://collectcdn.com/embed.js"></script>
-              <iframe class="breath" style="background: none;"  src="https://links.collect.chat/60dc8033abdbe746a4244c1c"   height="100%" width="50%" frameBorder="0"></iframe>
-            </div>
+              <iframe class="breath" style="background: none;"  src="https://links.collect.chat/60dc8033abdbe746a4244c1c"   height="80%" width="50%" frameBorder="0"></iframe>
             </div>
         </div>
         </div>
@@ -51,6 +44,7 @@
       Implemented by <a href="https://github.com/malek-annabi">Malek Annabi</a>
     </div>
   </div>
+
 </footer><!-- End Footer -->
 
 <!-- <div id="preloader"></div> -->

@@ -38,7 +38,7 @@
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top header-inner-pages">
-    <div class="container d-flex align-items-center justify-content-lg-between">
+    <div class="container d-flex align-items-center">
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -49,6 +49,7 @@
           <li><a class="nav-link scrollto"   (click)="moveToAbout()" routerLinkActive="router-link-active">About</a></li>
           <li><a class="nav-link scrollto"  (click)="moveToClips()" routerLinkActive="router-link-active">Clips</a></li>
           <li><a class="nav-link scrollto"  (click)="moveToEvents()" routerLinkActive="router-link-active">Events</a></li>
+          <li><a class="nav-link scrollto" href="#about" routerLinkActive="router-link-active">About me</a></li>
 
         </ul>
 
@@ -61,6 +62,7 @@
                 <li><a class="nav-link scrollto"  style="color: black;" (click)="moveToAbout()" routerLinkActive="router-link-active">About</a></li>
                 <li><a class="nav-link scrollto" style="color: black;" (click)="moveToClips()" routerLinkActive="router-link-active">Clips</a></li>
                 <li><a class="nav-link scrollto"  style="color: black;"[routerLink]="['events']" routerLinkActive="router-link-active">Events</a></li>
+                <li><a href="#about" style="color: black;"class="nav-link scrollto">About me</a></li>
               </div>
             </div>
           </div>
@@ -68,9 +70,10 @@
           <li class="hide" id="scroll">
             <div id='search'  class='search-box'><button class='btn-search blop'><i class='fas fa-search'></i></button><input style="color: aliceblue;" [(ngModel)]="term" (ngModelChange)='newTerm()' class='input-search'  type='text' name='term' id='term'></div>
           </li>
+
       </nav><!-- .navbar -->
 
-      <a  style="margin-left: 10%;" href="#about" class="get-started-btn scrollto">About me</a>
+
 
     </div>
 

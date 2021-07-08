@@ -7,7 +7,7 @@
   }
 }
 .two{
-  min-width: 400px;
+  min-width: 300px;
   min-height:300px;
 }
 
@@ -34,11 +34,12 @@
     height: auto; /* The width is 100%, when the viewport is 800px or smaller */
   }
   #twitchlive{
-    width: 280px;
+    width: 100%;
     height: auto;
   }
   #twitchchat{
-    width: auto;
+    margin:none;
+    width: 100%;
     height: auto;
   }
   #discord{
@@ -46,4 +47,7 @@
     height: auto;
   }
 
+}
+*{
+  max-width: 100%;
 }
