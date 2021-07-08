@@ -1,9 +1,8 @@
 search = document.getElementById("scroll");
-console.log(search)
-
+var clips=document.getElementById('clips')
 var myScrollFunc = function() {
   var y = window.scrollY;
-  if (y >= 1500) {
+  if (y >= clips.offsetTop-200) {
     search.className = "show fade-in"
   } else {
     search.className = "hide"
