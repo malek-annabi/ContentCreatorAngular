@@ -81,21 +81,21 @@ export class AdminComponent implements OnInit {
 
 
   openAddClip() {
-    const modalRef = this.modalService.open(ClipAdminComponent);
+    const modalRef = this.modalService.open(ClipAdminComponent,{ size: 'lg' });
     modalRef.componentInstance.name = 'AddClip';
   }
   openUpdateClip(clip:any) {
-    const modalRef = this.modalService.open(UpdateClipComponent);
+    const modalRef = this.modalService.open(UpdateClipComponent,{ size: 'lg' });
     modalRef.componentInstance.name = 'UpdateClip';
     modalRef.componentInstance.clip=clip;
     modalRef.componentInstance.id=clip._id;
   }
   openAddEvent() {
-    const modalRef = this.modalService.open(EventAdminComponent);
+    const modalRef = this.modalService.open(EventAdminComponent,{ size: 'xl' });
     modalRef.componentInstance.name = 'AddEvent';
   }
   openUpdateEvent(event:any) {
-    const modalRef = this.modalService.open(UpdateEventComponent);
+    const modalRef = this.modalService.open(UpdateEventComponent,{ size: 'xl' });
     modalRef.componentInstance.name = 'UpdateEvent';
     modalRef.componentInstance.event=event;
     modalRef.componentInstance.id=event._id;

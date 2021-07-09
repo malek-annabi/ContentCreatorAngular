@@ -23,7 +23,7 @@ export class UpdateClipComponent implements OnInit {
       this.updateClip = this.fb.group({
       name: ['', {validators: [ Validators.required,Validators.minLength(4)],updateOn:"blur" }],
       description:  ['', {validators: [ Validators.required,Validators.minLength(4)],updateOn:"blur" }],
-      link:  ['', {validators: [ Validators.required,Validators.minLength(4),Validators.pattern('\bclips.twitch.tv\b')],updateOn:"blur" }],
+      link:  ['', {validators: [ Validators.required,Validators.minLength(4),Validators.pattern('^https:\/\/clips.twitch.tv\/[\s\S]+')],updateOn:"blur" }],
     })
 
   }
@@ -41,12 +41,9 @@ export class UpdateClipComponent implements OnInit {
        return;
     }
     // sending new clip infos
-
-
     this.clipService.updateClip(_id,this.updateClip.value).subscribe((data:any) => {
       this.clip = data;
       window.location.reload();
-
       //server errors
       }, error => console.log(error));
     }

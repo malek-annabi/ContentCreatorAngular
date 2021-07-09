@@ -43,7 +43,6 @@ export class EventAdminComponent implements OnInit {
 
 
     this.isSubmitted = true
-    console.log(this.addEvent.controls.photo)
 
 
     if(this.addEvent.invalid)

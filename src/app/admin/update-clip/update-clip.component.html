@@ -1,41 +1,50 @@
-<!-- update clip modal -->
-<div class="modal-header card" style="padding: 10px; box-shadow: none;">
-    <h3 style="margin-left: 50%;width: 100%;"> Update Clip </h3>
-    <form [formGroup]="updateClip" (ngSubmit) = "onUpdateSubmit(clip._id)">
-        <div class="form-group">
-            <label class="d-flex">NAME<h4 style="color: red;"> *</h4></label>
-            <input formControlName="name" [(ngModel)]="clip.name" type="text" class ="form-control" id = "firstName" name = "name" required>
-        </div>
-        <div *ngIf="(getControl.name.touched || isSubmitted) && getControl.name.invalid" class="text-danger">
-          <div *ngIf="getControl.name.errors?.required">Name is required.</div>
-          <div *ngIf="getControl.name.errors?.minlength">Minimum 4 character are required.</div>
-        </div>
-        <div class="form-group">
-          <div class="form-group">
-            <label class="d-flex">LINK<h4 style="color: red;"> *</h4></label>
-            <input formControlName="link" [(ngModel)]="clip.link" type="text" class ="form-control" id = "link"
-                name = "link" required>
-        </div>
-        <div *ngIf="(getControl.link.touched || isSubmitted) && getControl.link.invalid" class="text-danger">
-          <div *ngIf="getControl.link.errors?.pattern">This is not a twitch link try again</div>
-          <div *ngIf="getControl.link.errors?.required">Link is required.</div>
-          <div *ngIf="getControl.link.errors?.minlength">Minimum 4 character are required.</div>
-        </div>
-            <label class="d-flex">DESCRIPTION<h4 style="color: red;"> *</h4></label>
-            <textarea formControlName="description"  [(ngModel)]="clip.description" type="text" class ="form-control" id = "description"
-                 name = "description" required></textarea>
-        </div>
-        <div *ngIf="(getControl.description.touched || isSubmitted) && getControl.description.invalid" class="text-danger">
-          <div *ngIf="getControl.description.errors?.required">Description is required.</div>
-          <div *ngIf="getControl.description.errors?.minlength">Minimum 4 character are required.</div>
-        </div>
-        </form>
+<!-- add eventModal content -->
 
+<div class="modal-header" style="padding: 10px;">
+  <div style="width: 100%;">
+    <h3 style="margin-left: 40%;"> Add Clip </h3>
+    <form [formGroup]="updateClip" (ngSubmit) = "onUpdateSubmit(clip._id)">
+        <div  class="d-flex">
+          <div class="form-group">
+            <label class="d-flex">NAME<h4 style="color: red;">*</h4></label>
+            <input formControlName="name"  type="text" class ="form-control" id = "name" name = "name">
+            <div *ngIf="(getControl.name.touched || isSubmitted) && getControl.name.invalid" class="text-danger">
+              <div *ngIf="getControl.name.errors?.required">Name is required.</div>
+              <div *ngIf="getControl.name.errors?.minlength">Minimum 4 character are required.</div>
+            </div>
         </div>
-        <div style="background-color: white;">
-          <button style="width: 30%;margin-left: 10%;"  class = "btn btn-success" type ="submit" (click)="activeModal.close('Close click')" routerLinkActive="active">Update</button>
-          <button  style="width: 30%;margin-left: 20%;"  type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
-          <br>
-          <br>
+      </div>
+        <div class="form-group">
+          <label class="d-flex">LINK<h4 style="color: red;">*</h4></label>
+          <input formControlName="link"  type="text" class ="form-control" id = "link"
+              name = "link" >
+              <div *ngIf="(getControl.link.touched || isSubmitted) && getControl.link.invalid" class="text-danger">
+                <div *ngIf="getControl.link.errors?.required">Link is required.</div>
+                <div *ngIf="getControl.link.errors?.minlength">Minimum 4 character are required</div>
+                <div *ngIf="getControl.link.errors?.pattern">This is not a twitch link try again</div>
+              </div>
+      </div>
+        <div class="form-group">
+            <label class="d-flex"> DESCRIPTION<h4 style="color: red;">*</h4></label>
+            <textarea  formControlName="description"  type="text" class ="form-control" id = "description"
+                 name = "description">
+                 </textarea>
+                 <div *ngIf="(getControl.description.touched || isSubmitted) && getControl.description.invalid" class="text-danger">
+                  <div *ngIf="getControl.description.errors?.required">Description is required.</div>
+                  <div *ngIf="getControl.description.errors?.minlength">Minimum 4 character are required.</div>
+                </div>
         </div>
+        <div class="container">
+        <div class="modal-footer d-flex row">
+          <div class="col">
+          <button  style="width: 50%;" class = "btn btn-success col" type ="submit"    routerLinkActive="active">Add Clip</button>
+        </div>
+        <div class="col">
+          <button  style="margin-left: 80%;" type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+        </div>
+        </div>
+      </div>
+    </form>
+    </div>
+
 
