@@ -131,6 +131,9 @@
 }
 
 @media screen and (max-width: 600px) {
+  .digga{
+    height: 300px;
+  }
   .h1{
     font-size: small;
   }
