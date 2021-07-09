@@ -3,10 +3,9 @@
 <!-- nav -->
 <div class="sidebar" id="sidebar">
   <a class="btn" style="background-color: lightblue;" [routerLink]="['']"><i class="fas fa-home"></i></a>
-  <a class="btn"  href="admin/clips">Clips</a>
+  <a class="btn active"  href="admin/clips">Clips</a>
       <a class="btn"  href="admin/events">Events</a>
-      <a  class="btn btn-success"  (click)='back()'>Back</a>
-      <a id="logout" class="btn btn-danger" *ngIf="authService.isLoggedIn" routerLinkActive="active" (click)="logout()">logout</a>
+      <a id="logout" style="margin-top:80%;" class="btn btn-danger" *ngIf="authService.isLoggedIn" routerLinkActive="active" (click)="logout()">logout</a>
 </div>
 <!-- <ul style="margin-left: 1%;" class="list-group">
   <br>
@@ -27,6 +26,7 @@
   <div class="col-md-12">
   <section class="panel">
         <div class="panel-body">
+          <!-- <a  class="btn btn-success"  (click)='back()'><i class="fas fa-arrow-left"></i></a> -->
           <h2 style="margin-left: 20%;" class="pro-d-title">
             {{clip.name}}
           </h2>

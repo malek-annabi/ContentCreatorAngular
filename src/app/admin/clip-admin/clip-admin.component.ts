@@ -22,7 +22,7 @@ export class ClipAdminComponent implements OnInit {
     this.addClip = this.fb.group({
       name: ['',{validators: [Validators.required, Validators.minLength(4)],updateOn: 'blur',},],
       description: ['',{validators: [Validators.required, Validators.minLength(4)],updateOn: 'blur',},],
-      link: ['',{validators: [Validators.required,Validators.minLength(4),Validators.pattern('^https:\/\/clips.twitch.tv\/[\s\S]+')],updateOn: 'blur',},],
+      link: ['',{validators: [Validators.required,Validators.minLength(4)],updateOn: 'submit',},],
     });
   }
 

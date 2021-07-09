@@ -3,17 +3,17 @@
 <div class="sidebar" id="sidebar">
   <a class="btn" style="background-color: lightblue;" [routerLink]="['']"><i class="fas fa-home"></i></a>
   <a class="btn"  href="admin/clips">Clips</a>
-      <a class="btn"  href="admin/events">Events</a>
-      <a  class="btn btn-success"  (click)='back()'>Back</a>
+      <a class="btn active"  href="admin/events">Events</a>
       <a id="logout" class="btn btn-danger" *ngIf="authService.isLoggedIn" routerLinkActive="active" (click)="logout()">logout</a>
 </div>
 <!-- event details -->
 <div style="margin-top: 3%;" class="container bootdey">
   <div class="col-md-12">
   <section class="panel" >
-    <h2 style="margin-left: 30%;" class="pro-d-title">
+    <!-- <a  class="btn btn-success"  (click)='back()'><i class="fas fa-arrow-left"></i></a> -->
+    <h1 style="margin-left: 30%;" class="pro-d-title">
       {{event.name}}
-    </h2>
+    </h1>
     <br>
     <div>
       <iframe class="responsive-iframe" width="1000" height="720" [src]="event.link | asyncpipe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -23,18 +23,18 @@
         <p>Created At :{{event.createdAt | date:'short'}}</p>
         <p style="margin-left: 10%;">Updated At :{{event.updatedAt | date:'short'}}</p>
       </div>
-      <h3>description :</h3>
+      <h3>Description :</h3>
         <p style="text-align: left;">
           {{event.description}}
         </p>
         <br>
       <img class="eventimg" width="1000" height="720" [src]="event.photo | asyncpipe">
       <br>
-      <h2 style="margin-top: 2%;">Time : {{event.time | date:'short'}}</h2>
+      <h3 style="margin-top: 2%;">Time : {{event.time | date:'short'}}</h3>
     </div>
       <div style="text-align: left;margin-top: 2%;" class="col-md-6">
         <br>
-        <h3 style="text-align: left;" >Rules :</h3>
+        <h4 style="text-align: left;" >Rules :</h4>
         <p style="text-align: left;">
           {{event.rules}}
         </p>

@@ -1,9 +1,9 @@
 <!-- add eventModal content -->
 
 <div class="modal-header card" style="padding: 10px;">
-  <div>
-    <h3 style="margin-left: 35%;"> Add Event </h3>
-    <form [formGroup]="addEvent" (ngSubmit) = "onAddSubmit()">
+  <div style="width: 100%;">
+    <h3 style="margin-left: 40%;"> Add Event </h3>
+    <form style="margin-left: 1%;" [formGroup]="addEvent" (ngSubmit) = "onAddSubmit()">
         <div  class="d-flex">
           <div style="width: 50%;" class="form-group">
             <label class="d-flex">NAME<h4 style="color: red;">*</h4></label>
@@ -13,7 +13,7 @@
               <div *ngIf="getControl.name.errors?.minlength">Minimum 4 character are required.</div>
             </div>
         </div>
-        <div style="width: 50%;" class="form-group">
+        <div style="width: 30%;margin-left: 20%;" class="form-group">
           <label class="d-flex">TIME<h4 style="color: red;">*</h4></label>
           <input formControlName="time"  type="datetime-local" class ="form-control" id = "time"
                name = "time" >
@@ -23,7 +23,7 @@
               </div>
         </div>
       </div>
-        <div style="width: 50%;" class="form-group">
+        <div class="form-group">
           <label class="d-flex">PHOTO<h4 style="color: red;">*</h4></label>
           <input formControlName="photo"  type="text" class ="form-control" id = "photo"
               name = "photo" >
@@ -58,9 +58,13 @@
           </div>
         </div>
         <div class="container">
-        <div class="modal-footer row">
+        <div class="modal-footer d-flex row">
+        <div class="col">
           <button  style="width: 30%;margin-right: 30%;" class = "btn btn-success col" type ="submit"    routerLinkActive="active">Add Event</button>
-          <button  style="width: 30%;" type="button col" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+          </div>
+          <div class="col">
+          <button  style="width: 20%;margin-left: 80%;" type="button col" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+        </div>
         </div>
       </div>
     </form>
