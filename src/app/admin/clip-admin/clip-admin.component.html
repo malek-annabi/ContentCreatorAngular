@@ -18,15 +18,14 @@
         <input formControlName="link" [(ngModel)]="clip.link" type="text" class="form-control" id="link" name="link"
           required>
         <div *ngIf="(getControl.link.touched || isSubmitted) && getControl.link.invalid" class="text-danger">
-          <div *ngIf="getControl.link.errors?.pattern">This is not a twitch link try again</div>
           <div *ngIf="getControl.link.errors?.required">Link is required.</div>
           <div *ngIf="getControl.link.errors?.minlength">Minimum 4 character are required.</div>
+          <div *ngIf="getControl.link.errors?.pattern">This is not a twitch link try again</div>
         </div>
       </div>
       <label class="d-flex">DESCRIPTION<h4 style="color: red;"> *</h4></label>
       <textarea formControlName="description" [(ngModel)]="clip.description" type="text" class="form-control"
-        id="description" name="description" required>
-                   write your description here
+        id="description" name="description" placeholder="write a description here" required>
                    </textarea>
       <div *ngIf="(getControl.description.touched || isSubmitted) && getControl.description.invalid"
         class="text-danger">

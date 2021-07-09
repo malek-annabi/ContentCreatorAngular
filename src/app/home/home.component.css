@@ -35,16 +35,17 @@
   }
   #twitchlive{
     width: 100%;
-    height: auto;
+    height: 300px;
   }
   #twitchchat{
     margin:none;
     width: 100%;
-    height: auto;
+    height: 300;
   }
   #discord{
     width: 280px;
     height: auto;
+    margin-right: 10%;
   }
 }
 *{

@@ -20,31 +20,9 @@ export class ClipAdminComponent implements OnInit {
     public activeModal: NgbActiveModal
   ) {
     this.addClip = this.fb.group({
-      name: [
-        '',
-        {
-          validators: [Validators.required, Validators.minLength(4)],
-          updateOn: 'blur',
-        },
-      ],
-      description: [
-        '',
-        {
-          validators: [Validators.required, Validators.minLength(4)],
-          updateOn: 'blur',
-        },
-      ],
-      link: [
-        '',
-        {
-          validators: [
-            Validators.required,
-            Validators.minLength(4),
-            Validators.pattern('\bclips.twitch.tv\b'),
-          ],
-          updateOn: 'blur',
-        },
-      ],
+      name: ['',{validators: [Validators.required, Validators.minLength(4)],updateOn: 'blur',},],
+      description: ['',{validators: [Validators.required, Validators.minLength(4)],updateOn: 'blur',},],
+      link: ['',{validators: [Validators.required,Validators.minLength(4),Validators.pattern('\bclips.twitch.tv\b'),],updateOn: 'blur',},],
     });
   }
 
