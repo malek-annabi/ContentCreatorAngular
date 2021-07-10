@@ -101,6 +101,7 @@
 @media screen and (max-width: 600px) {
   #boticon{
     height: 5%;
+    width: 10%;
   }
   .div{
     margin:0;
