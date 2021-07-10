@@ -44,10 +44,16 @@
   }
   #discord{
     width: 280px;
-    height: auto;
+    height: 300px;
     margin-right: 10%;
   }
 }
 *{
   max-width: 100%;
+}
+.container{
+  justify-content: center;
+}
+.child {
+  margin: 0 auto;
 }

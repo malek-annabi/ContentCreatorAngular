@@ -2,7 +2,10 @@
   *{
     width: 100%;
   }
-  .div{
-    margin:0;
-  }
+}
+.container{
+  justify-content: center;
+}
+.child {
+  margin: 0 auto;
 }

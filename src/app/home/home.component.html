@@ -15,19 +15,20 @@
   <br>
   <div style="width:100%;" class="container">
     <div class="row">
-      <div id="twitchlive" class="change col"><iframe
+      <iframe id="twitchlive" class="change child"
           [src]="'https://player.twitch.tv/?channel=dope_usec&parent=malek-annabi.github.io' | asyncpipe"
-          frameborder="0" allowfullscreen="true" scrolling="no" height="500px" width="100%"></iframe></div>
-      <div id="twitchchat" class="two col"><iframe
-          [src]="'https://www.twitch.tv/embed/dope_usec/chat?parent=malek-annabi.github.io'| asyncpipe" height="100%"
-          width="60%"></iframe></div>
+          frameborder="0" allowfullscreen="true" scrolling="no" height="500px" width="50%"></iframe>
+      <iframe id="twitchchat" class="two child"
+          [src]="'https://www.twitch.tv/embed/dope_usec/chat?parent=malek-annabi.github.io'| asyncpipe" height="500px"
+          width="30%"></iframe>
     </div>
     <br>
-      <div  id="discord"><iframe class="change"
-          src="https://discord.com/widget?id=732955144618246247&theme=dark" height="400px" width="80%"
+      <div  ><iframe class="row child"
+          src="https://discord.com/widget?id=732955144618246247&theme=dark" id="discord" height="400px" width="80%"
           allowtransparency="true" frameborder="0"
           sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe></div>
   </div>
+  <br>
   <app-clip></app-clip>
   <br>
 </div>

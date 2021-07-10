@@ -1,15 +1,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <footer id="footer">
   <div class="footer-top">
-    <div  style="margin-left: 70%;" class="fixed-bottom">
-      <a (click)="toggle()" ><img id="boticon" width="20%" height="20%" src="./assets/img/bot.png"></a>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-    </div>
     <div class="container">
       <div class="row">
         <div class="col-lg-3 col-md-6">
@@ -24,15 +15,17 @@
               <a href="https://m.facebook.com/Dope_Usec-100738228763620/" class="facebook"><i class="fa fa-twitter"></i></a>
               <a href="https://www.instagram.com/dope_usec_ttv/?hl=en" class="instagram"><i class="fa fa-instagram"></i></a>
               <a href="https://www.twitch.tv/dope_usec" class="twitch"><i class="fa fa-twitch"></i></a>
-              <a href="https://www.youtube.com/channel/UC-d4NYIPhL5wsAxIiYBcfmA" class="youtube"><i class="fa fa-youtube"></i></a>
+              <a href="https://www.youtube.com/cannel/UC-d4NYIPhL5wsAxIiYBcfmA" class="youtube"><i class="fa fa-youtube"></i></a>
+              <a  id="boticon" style="margin-left: 90%;width: 5%;height: 10%;" class="fixed-bottom btn" (click)="toggle()" ><img  width="100%" height="100%" src="./assets/img/bot.png"></a>
             </div>
+
           </div>
         </div>
       </div>
         <div>
-            <div class="fixed-top fade-in" *ngIf="show" style="height: 300px;width: 80%;margin-left: 10%;">
+            <div class="fixed-bottom fade-in" *ngIf="show" style="height: 300px;width: 70%;">
               <script async type="text/javascript" src="https://collectcdn.com/embed.js"></script>
-              <iframe class="breath" style="background: none;"  src="https://links.collect.chat/60dc8033abdbe746a4244c1c"   height="80%" width="50%" frameBorder="0"></iframe>
+              <iframe id="bot" class="breath" style="background: none;"  src="https://links.collect.chat/60dc8033abdbe746a4244c1c"   height="100%" width="60%" frameBorder="0"></iframe>
             </div>
         </div>
         </div>
