@@ -11,7 +11,7 @@ import { NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./event-admin.component.css']
 })
 export class EventAdminComponent implements OnInit {
-
+  image:any;
 
   isSubmitted = false
   addEvent: FormGroup;
@@ -36,6 +36,10 @@ export class EventAdminComponent implements OnInit {
   ngOnInit(): void {
 
 
+  }
+  onSelectImage(event:any){
+    const file=event.target.file
+    this.image=file
   }
 
 
