@@ -47,10 +47,9 @@
         <img id="logo" width="8%" height="8%" src="./assets/img/USECWHITE.png">
         <ul>
           <li><a class="nav-link scrollto " (click)="moveToTop()">Home</a></li>
-          <li><a class="nav-link scrollto"   (click)="moveToAbout()" routerLinkActive="router-link-active">About</a></li>
+          <li><a class="nav-link scrollto"   (click)="moveToAbout()" routerLinkActive="router-link-active">Über</a></li>
           <li><a class="nav-link scrollto"  (click)="moveToClips()" routerLinkActive="router-link-active">Clips</a></li>
           <li><a class="nav-link scrollto"  (click)="moveToEvents()" routerLinkActive="router-link-active">Events</a></li>
-          <li><a class="nav-link scrollto" href="#about" routerLinkActive="router-link-active">About me</a></li>
 
         </ul>
 
@@ -60,10 +59,9 @@
               <button class="btn" id="dropdownBasic1" ngbDropdownToggle><i class="bi bi-list mobile-nav-toggle"></i></button>
               <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                 <li><a class="nav-link scrollto" style="color: black;" (click)="moveToTop()">Home</a></li>
-                <li><a class="nav-link scrollto"  style="color: black;" (click)="moveToAbout()" routerLinkActive="router-link-active">About</a></li>
+                <li><a class="nav-link scrollto"  style="color: black;" (click)="moveToAbout()" routerLinkActive="router-link-active">Über</a></li>
                 <li><a class="nav-link scrollto" style="color: black;" (click)="moveToClips()" routerLinkActive="router-link-active">Clips</a></li>
                 <li><a class="nav-link scrollto"  style="color: black;"[routerLink]="['events']" routerLinkActive="router-link-active">Events</a></li>
-                <li><a href="#about" style="color: black;"class="nav-link scrollto">About me</a></li>
               </div>
             </div>
           </div>
