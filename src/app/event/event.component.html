@@ -5,7 +5,7 @@
   <header class="header">
     <h3 style="color: yellow;">{{event.name}}</h3>
     <div class="event-image-wrapper">
-      <img *ngIf="event.photo" src="{{event.photo | asyncpipe}}">
+      <img *ngIf="event.photo" [src]="event.photo | asyncpipe">
     </div>
   </header>
   <div class="event-details">
