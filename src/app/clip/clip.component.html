@@ -1,4 +1,5 @@
-  <div class="container" style="margin-bottom: 5%;width:100%;text-align: center;"  id="clips" *ngFor="let clip of activeClips.slice().reverse() | filter:term">
+  <br id="clips">
+  <div class="container" style="margin-bottom: 5%;width:100%;text-align: center;"   *ngFor="let clip of activeClips.slice().reverse() | filter:term">
     <h4  style="color: #ffc451;">{{clip.name }}</h4>
     <p style="color: #ffc451;">{{clip.description}}</p>
     <iframe style="border: none;" [src]="clip.link | asyncpipe" height="400px" width="80%" allowfullscreen="true"></iframe>
