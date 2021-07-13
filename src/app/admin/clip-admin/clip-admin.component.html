@@ -21,6 +21,7 @@
               <div *ngIf="(getControl.link.touched || isSubmitted) && getControl.link.invalid" class="text-danger">
                 <div *ngIf="getControl.link.errors?.required">Link is required.</div>
                 <div *ngIf="getControl.link.errors?.minlength">Minimum 4 character are required</div>
+                <div *ngIf="getControl.link.errors?.pattern">This is not a twitch link.</div>
               </div>
       </div>
         <div class="form-group">

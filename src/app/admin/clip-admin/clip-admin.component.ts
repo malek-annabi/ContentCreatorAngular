@@ -22,17 +22,14 @@ export class ClipAdminComponent implements OnInit {
     this.addClip = this.fb.group({
       name: ['',{validators: [Validators.required, Validators.minLength(4)],updateOn: 'blur',},],
       description: ['',{validators: [Validators.required, Validators.minLength(4)],updateOn: 'blur',},],
-      link: ['',{validators: [Validators.required,Validators.minLength(4)],updateOn: 'submit',},],
+      link: ['',{validators: [Validators.required,Validators.minLength(4),Validators.pattern('^https:\/\/clips.twitch.tv\/.+')],updateOn: 'submit',},],
     });
   }
 
   ngOnInit(): void {}
   //submit add clip
   onAddSubmit(){
-
     this.isSubmitted = true
-
-
     if(this.addClip.invalid){
        return;
     }
@@ -49,21 +46,21 @@ export class ClipAdminComponent implements OnInit {
       return this.addClip.controls;
     }
   // onAddSubmit() {
-  //   //if not valid
+  //if not valid
   //   this.isSubmitted = true;
   //   if (this.addClip.invalid)
   //   return;
-  //   //sending clip
+  //sending clip
   //   this.clipService.createClip(this.addClip.value).subscribe(
   //     (data: any) => {
   //       this.clip = data;
   //       window.location.reload();
-  //       //server error
+  //server error
   //     },
   //     (error) => console.log(error)
   //   );
   // }
-  // //gettting controls
+  //gettting controls
   // get getControl() {
   //   return this.addClip.controls;
   // }

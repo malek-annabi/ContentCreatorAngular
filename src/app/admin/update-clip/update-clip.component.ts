@@ -23,7 +23,7 @@ export class UpdateClipComponent implements OnInit {
       this.updateClip = this.fb.group({
       name: ['', {validators: [ Validators.required,Validators.minLength(4)],updateOn:"blur" }],
       description:  ['', {validators: [ Validators.required,Validators.minLength(4)],updateOn:"blur" }],
-      link:  ['', {validators: [ Validators.required,Validators.minLength(4)],updateOn:"blur" }],
+      link:  ['', {validators: [ Validators.required,Validators.minLength(4),Validators.pattern('^https:\/\/clips.twitch.tv\/.+')],updateOn:"blur" }],
     })
 
   }
