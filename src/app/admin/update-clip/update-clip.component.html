@@ -2,12 +2,12 @@
 
 <div class="modal-header" style="padding: 10px;">
   <div style="width: 100%;">
-    <h3 style="margin-left: 40%;"> Add Clip </h3>
+    <h3 style="margin-left: 40%;"> Update Clip </h3>
     <form [formGroup]="updateClip" (ngSubmit) = "onUpdateSubmit(clip._id)">
         <div>
           <div class="form-group">
             <label class="d-flex">NAME<h4 style="color: red;">*</h4></label>
-            <input formControlName="name"  type="text" class ="form-control" id = "name" name = "name">
+            <input [(ngModel)]='clip.name' formControlName="name"  type="text" class ="form-control" id = "name" name = "name">
             <div *ngIf="(getControl.name.touched || isSubmitted) && getControl.name.invalid" class="text-danger">
               <div *ngIf="getControl.name.errors?.required">Name is required.</div>
               <div *ngIf="getControl.name.errors?.minlength">Minimum 4 character are required.</div>
@@ -16,7 +16,7 @@
       </div>
         <div class="form-group">
           <label class="d-flex">LINK<h4 style="color: red;">*</h4></label>
-          <input formControlName="link"  type="text" class ="form-control" id = "link"
+          <input [(ngModel)]='clip.link' formControlName="link"  type="text" class ="form-control" id = "link"
               name = "link" >
               <div *ngIf="(getControl.link.touched || isSubmitted) && getControl.link.invalid" class="text-danger">
                 <div *ngIf="getControl.link.errors?.required">Link is required.</div>
@@ -25,7 +25,7 @@
       </div>
         <div class="form-group">
             <label class="d-flex"> DESCRIPTION<h4 style="color: red;">*</h4></label>
-            <textarea  formControlName="description"  type="text" class ="form-control" id = "description"
+            <textarea [(ngModel)]='clip.description' formControlName="description"  type="text" class ="form-control" id = "description"
                  name = "description">
                  </textarea>
                  <div *ngIf="(getControl.description.touched || isSubmitted) && getControl.description.invalid" class="text-danger">
@@ -36,7 +36,7 @@
         <div class="container">
         <div class="modal-footer d-flex row">
           <div class="col">
-          <button  style="width: 30%;" class = "btn btn-success col" type ="submit"    routerLinkActive="active">Add Clip</button>
+          <button  style="width: 30%;" class = "btn btn-success col" type ="submit"    routerLinkActive="active">Update</button>
         </div>
         <div class="col">
           <button  style="margin-left: 80%;" type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
