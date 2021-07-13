@@ -98,11 +98,7 @@
     opacity:0;
 }
 }
-@media screen and (max-width: 600px) {
-  #boticon{
-    height: 5%;
-    width: 10%;
-  }
+@media screen and (max-width: 1000px) {
   .div{
     margin:0;
   }

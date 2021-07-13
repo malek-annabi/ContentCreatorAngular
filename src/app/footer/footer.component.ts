@@ -11,6 +11,7 @@ export class FooterComponent implements OnInit {
 
   constructor() { }
   ngOnInit(){
+    this.loadScript()
     setTimeout(() =>
     {
         this.show=true;
@@ -34,5 +35,18 @@ export class FooterComponent implements OnInit {
     this.buttonName = "Hide";
     this.show = !this.show;
   }
+  }
+  loadScript(){
+    const dynamicScript=[
+      '/assets/js/footer.js'
+    ];
+    for(let i =0;i<dynamicScript.length;i++){
+      const node = document.createElement('script');
+      node.src=dynamicScript[i];
+      node.type='text/javascript';
+      node.async=false;
+      node.charset='utf-8';
+      document.getElementsByTagName('head')[0].appendChild(node);
+    }
   }
 }
