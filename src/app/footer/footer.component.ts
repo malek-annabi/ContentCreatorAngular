@@ -38,7 +38,7 @@ export class FooterComponent implements OnInit {
   }
   loadScript(){
     const dynamicScript=[
-      '/assets/js/footer.js'
+      './assets/js/footer.js'
     ];
     for(let i =0;i<dynamicScript.length;i++){
       const node = document.createElement('script');
