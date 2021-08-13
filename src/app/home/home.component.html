@@ -18,27 +18,32 @@
 
     </div>
   </section><!-- End Hero -->
-
-
   <br>
-  <div style="width:100%;" class="container">
-    <div class="row">
+  <div style="width:100%;" class="container d-flex justify-content-around" style="display: flex;
+    align-items: center;
+    flex-wrap: wrap">
+    <div class="card" style="width: 70rem;">
       <iframe id="twitchlive" class="change child"
           [src]="'https://player.twitch.tv/?channel=dope_usec&parent=malek-annabi.github.io' | asyncpipe"
-          frameborder="0" allowfullscreen="true" scrolling="no" height="500px" width="50%"></iframe>
-      <iframe id="twitchchat" class="two child"
-          [src]="'https://www.twitch.tv/embed/dope_usec/chat?parent=malek-annabi.github.io'| asyncpipe" height="500px"
-          width="30%"></iframe>
-    </div>
+          frameborder="0" allowfullscreen="true" scrolling="no" height="500px" width="100%"></iframe>
+          </div>
+      <div class="card" style="width: 30rem;">
+          <iframe id="twitchchat" class="two child"
+          [src]="'https://www.twitch.tv/embed/dope_usec/chat?parent=malek-annabi.github.io'| asyncpipe" style="border: none;" height="500px"
+          width="100%"></iframe>
+          </div>
+          </div>
     <br>
-      <div  style="width: 100%;" class="container">
-        <div class="row">
-        <iframe class="change child" src="https://discord.com/widget?id=732955144618246247&theme=dark" id="discord" height="400px" width="60%" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-        <a class="twitter-timeline two child" data-lang="en" data-width="30%" data-height="400" data-theme="dark" href="https://twitter.com/BetaEFT?ref_src=twsrc%5Etfw">Tweets by BetaEFT</a>
+    <div style="width:100%;" class="container d-flex justify-content-around" style="display: flex;
+    align-items: center;
+    flex-wrap: wrap">
+        <div class="card" style="width: 70rem;background: none;"> 
+        <iframe class="change child" src="https://discord.com/widget?id=732955144618246247&theme=dark" id="discord" height="400px" width="100%" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
         </div>
+        <div class="card" style="width: 30rem;background: none;"> 
+        <a class="twitter-timeline two child" data-lang="en" data-width="100%" data-height="400" data-theme="dark" href="https://twitter.com/BetaEFT?ref_src=twsrc%5Etfw">Tweets by BetaEFT</a>
+      </div>  
         </div>
-
-  </div>
   <br>
   <app-clip></app-clip>
   <br>
